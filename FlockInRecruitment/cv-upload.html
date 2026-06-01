@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your CV - FlockIn Recruitment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.png" alt="FlockIn Recruitment" class="logo">
+                <div class="nav-brand-name">FlockIn Recruitment<span>Moving Forward Together</span></div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="team.html" class="nav-link">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cv-upload.html" class="nav-link active">Upload CV</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CV Upload Hero Section -->
+    <section class="cv-hero">
+        <div class="container">
+            <div class="cv-hero-content">
+                <h1 class="cv-hero-title">Submit Your CV</h1>
+                <p class="cv-hero-subtitle">We read every CV we receive and only get in touch when there's a genuine match</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Upload Form -->
+    <section class="cv-upload-section">
+        <div class="container">
+            <div class="cv-upload-container">
+                <div class="cv-form-wrapper">
+                    <h2>Submit Your CV</h2>
+                    <p class="form-description">Fill in the form and attach your CV. We'll review it and get back to you within 48 hours — or sooner if we have something that fits.</p>
+
+                    <form class="cv-upload-form" action="#" method="POST" enctype="multipart/form-data">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-user"></i> Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Professional Information -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-briefcase"></i> Professional Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="currentPosition">Current Position</label>
+                                    <input type="text" id="currentPosition" name="currentPosition">
+                                </div>
+                                <div class="form-group">
+                                    <label for="experience">Years of Experience</label>
+                                    <select id="experience" name="experience">
+                                        <option value="">Select experience level</option>
+                                        <option value="0-1">0-1 years</option>
+                                        <option value="1-3">1-3 years</option>
+                                        <option value="3-5">3-5 years</option>
+                                        <option value="5-10">5-10 years</option>
+                                        <option value="10+">10+ years</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="skills">Key Skills</label>
+                                <textarea id="skills" name="skills" rows="3" placeholder="e.g., Project Management, JavaScript, Customer Service"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="desiredPosition">Desired Position</label>
+                                <input type="text" id="desiredPosition" name="desiredPosition" placeholder="e.g., Software Developer, Marketing Manager">
+                            </div>
+                        </div>
+
+                        <!-- CV Upload -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-file-upload"></i> CV Upload</h3>
+                            <div class="form-group">
+                                <label for="cvFile">Upload CV (PDF, DOC, DOCX) *</label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required>
+                                    <div class="file-upload-info">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Click to upload or drag and drop</p>
+                                        <span>Maximum file size: 5MB</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="coverLetter">Cover Letter (Optional)</label>
+                                <textarea id="coverLetter" name="coverLetter" rows="6" placeholder="Tell us why you're interested in working with us..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Preferences -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-cog"></i> Preferences</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="location">Preferred Location</label>
+                                    <select id="location" name="location">
+                                        <option value="">Select location</option>
+                                        <option value="lahore">Lahore</option>
+                                        <option value="karachi">Karachi</option>
+                                        <option value="islamabad">Islamabad</option>
+                                        <option value="remote">Remote</option>
+                                        <option value="anywhere">Anywhere</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="salary">Expected Salary (PKR)</label>
+                                    <input type="number" id="salary" name="salary" placeholder="e.g., 80000">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="availability">Availability</label>
+                                <select id="availability" name="availability">
+                                    <option value="">Select availability</option>
+                                    <option value="immediate">Immediate</option>
+                                    <option value="2-weeks">2 weeks notice</option>
+                                    <option value="1-month">1 month notice</option>
+                                    <option value="3-months">3 months notice</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Consent -->
+                        <div class="form-section">
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="privacyConsent" required>
+                                    <span class="checkmark"></span>
+                                    I consent to FlockIn Recruitment processing my personal data in accordance with their privacy policy *
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="marketingConsent">
+                                    <span class="checkmark"></span>
+                                    I would like to receive updates about job opportunities and recruitment services
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="cv-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-info-circle"></i> What Happens Next?</h3>
+                        <ul>
+                            <li>We'll review your CV within 48 hours</li>
+                            <li>If suitable, we'll contact you for an initial discussion</li>
+                            <li>We'll match you with relevant opportunities</li>
+                            <li>We'll support you throughout the recruitment process</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-lightbulb"></i> CV Tips</h3>
+                        <ul>
+                            <li>Keep your CV concise (2-3 pages maximum)</li>
+                            <li>Highlight relevant skills and achievements</li>
+                            <li>Include quantifiable results where possible</li>
+                            <li>Ensure your contact information is up to date</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-phone"></i> Need Help?</h3>
+                        <p>If you have any questions about the application process, don't hesitate to contact us:</p>
+                        <p><strong>Phone:</strong> +92 3300767851</p>
+                        <p><strong>Email:</strong> contact@flockinrecruitment.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FlockIn Recruitment</h3>
+                    <p class="footer-tagline">Moving Forward Together</p>
+                    <p>Professional recruitment solutions across Pakistan and beyond</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +92 3300767851</p>
+                    <p><i class="fas fa-envelope"></i> contact@flockinrecruitment.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> C-2 Main Bahar Shah Road, Lahore Cantt</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Employee Portal</h3>
+                    <ul>
+                        <li><a href="employee-forms.html">Employee Forms</a></li>
+                        <li><a href="cv-upload.html">Upload CV</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2026 FlockIn Recruitment. All rights reserved.</p>
+                    <p><a href="privacy-policy.html" class="footer-link">Privacy Policy</a> | <a href="terms-of-service.html" class="footer-link">Terms of Service</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

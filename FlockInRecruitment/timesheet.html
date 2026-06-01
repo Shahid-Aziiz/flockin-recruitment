@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRE Recruitment Services - Employee Timesheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: white;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #2E7D32;
+            padding-bottom: 20px;
+        }
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2E7D32;
+            margin-bottom: 5px;
+        }
+        .form-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .form-section {
+            margin-bottom: 25px;
+        }
+        .form-row {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .form-row label {
+            width: 150px;
+            font-weight: bold;
+        }
+        .form-row input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .timesheet-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .timesheet-table th,
+        .timesheet-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .timesheet-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        .signature-section {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .signature-box {
+            width: 45%;
+        }
+        .signature-line {
+            border-bottom: 1px solid #000;
+            height: 30px;
+            margin-top: 5px;
+        }
+        @media print {
+            body { margin: 20px; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="company-name">IRE Recruitment Services</div>
+        <div class="form-title">Employee Timesheet</div>
+    </div>
+
+    <div class="form-section">
+        <div class="form-row">
+            <label>Employee Name:</label>
+            <input type="text" placeholder="Enter your full name">
+        </div>
+        <div class="form-row">
+            <label>Week Ending:</label>
+            <input type="date">
+        </div>
+        <div class="form-row">
+            <label>Department:</label>
+            <input type="text" placeholder="Enter your department">
+        </div>
+    </div>
+
+    <table class="timesheet-table">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Date</th>
+                <th>Hours Worked</th>
+                <th>Overtime</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td><input type="date"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td><input type="date"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td><input type="date"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td><input type="date"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td><input type="date"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td><input type="date"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td><input type="date"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+                <td><input type="number" min="0" max="24" step="0.5"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="form-section">
+        <div class="form-row">
+            <label>Total Regular Hours:</label>
+            <input type="number" min="0" step="0.5" readonly>
+        </div>
+        <div class="form-row">
+            <label>Total Overtime Hours:</label>
+            <input type="number" min="0" step="0.5" readonly>
+        </div>
+    </div>
+
+    <div class="signature-section">
+        <div class="signature-box">
+            <label>Employee Signature:</label>
+            <div class="signature-line"></div>
+        </div>
+        <div class="signature-box">
+            <label>Manager Signature:</label>
+            <div class="signature-line"></div>
+        </div>
+    </div>
+
+    <div class="no-print" style="margin-top: 30px; text-align: center;">
+        <button onclick="window.print()" style="padding: 10px 20px; background-color: #2E7D32; color: white; border: none; border-radius: 4px; cursor: pointer;">Print/Save as PDF</button>
+    </div>
+</body>
+</html>
