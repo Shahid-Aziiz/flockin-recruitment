@@ -1,70 +1,61 @@
-// Mobile Navigation Toggle
+// ============================================================
+// Navigation
+// ============================================================
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    
-    // Prevent body scroll when mobile menu is open
-    if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+function closeMenu() {
+    if (hamburger) hamburger.classList.remove('active');
+    if (navMenu) navMenu.classList.remove('active');
     document.body.style.overflow = '';
-}));
+}
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
 
-// Smooth scrolling for anchor links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            closeMenu();
+        }
+    });
+}
+
+// ============================================================
+// Smooth scrolling
+// ============================================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        closeMenu();
+        const target = document.querySelector(href);
         if (target) {
-            // Close mobile menu before scrolling
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.style.overflow = '';
-            
-            // Add offset for fixed navbar
             const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navbarHeight - 20;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: target.offsetTop - navbarHeight - 20, behavior: 'smooth' });
         }
     });
 });
 
-// Active navigation link highlighting
+// ============================================================
+// Active nav link highlighting
+// ============================================================
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+    const navbarHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 80;
     let current = '';
+
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        
-        if (scrollY >= (sectionTop - navbarHeight - 100)) {
+        if (scrollY >= section.offsetTop - navbarHeight - 100) {
             current = section.getAttribute('id');
         }
     });
@@ -77,32 +68,30 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Form validation for contact forms
+// ============================================================
+// Form validation
+// ============================================================
 function validateForm(form) {
-    const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
     let isValid = true;
 
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
+    form.querySelectorAll('[required]').forEach(input => {
+        const empty = input.type === 'checkbox' ? !input.checked : !input.value.trim();
+        if (empty) {
             input.classList.add('error');
             isValid = false;
         } else {
             input.classList.remove('error');
         }
-        
-        // Email validation
+
         if (input.type === 'email' && input.value.trim()) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(input.value.trim())) {
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
                 input.classList.add('error');
                 isValid = false;
             }
         }
-        
-        // Phone validation
+
         if (input.type === 'tel' && input.value.trim()) {
-            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
-            if (!phoneRegex.test(input.value.trim())) {
+            if (!/^[\+]?[0-9\s\-\(\)]{10,}$/.test(input.value.trim())) {
                 input.classList.add('error');
                 isValid = false;
             }
@@ -112,190 +101,197 @@ function validateForm(form) {
     return isValid;
 }
 
-// Add form validation to all forms
-document.addEventListener('DOMContentLoaded', () => {
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            if (!validateForm(form)) {
-                e.preventDefault();
-                alert('Please fill in all required fields correctly.');
+function attachRealTimeValidation(form) {
+    form.querySelectorAll('input, textarea, select').forEach(input => {
+        input.addEventListener('blur', () => {
+            if (input.hasAttribute('required') && !input.value.trim()) {
+                input.classList.add('error');
+            } else {
+                input.classList.remove('error');
             }
         });
-        
-        // Real-time validation
-        const inputs = form.querySelectorAll('input, textarea, select');
-        inputs.forEach(input => {
-            input.addEventListener('blur', () => {
-                if (input.hasAttribute('required') && !input.value.trim()) {
-                    input.classList.add('error');
-                } else {
-                    input.classList.remove('error');
-                }
-            });
-            
-            input.addEventListener('input', () => {
-                if (input.value.trim()) {
-                    input.classList.remove('error');
-                }
-            });
+        input.addEventListener('input', () => {
+            if (input.value.trim()) input.classList.remove('error');
         });
     });
-});
+}
 
-// Animate elements on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+function showFormSuccess(form, title, body) {
+    const successDiv = document.createElement('div');
+    successDiv.className = 'form-success';
+    successDiv.innerHTML = `
+        <div class="form-success-icon"><i class="fas fa-check-circle"></i></div>
+        <h3>${title}</h3>
+        <p>${body}</p>
+    `;
+    form.replaceWith(successDiv);
+}
 
-const observer = new IntersectionObserver((entries) => {
+// ============================================================
+// Scroll animations
+// ============================================================
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate');
+            scrollObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .location-card, .team-card, .about-card, .contact-card');
-    animateElements.forEach(el => observer.observe(el));
-});
-
+// ============================================================
 // Back to top button
+// ============================================================
 const backToTopButton = document.createElement('button');
 backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
 backToTopButton.className = 'back-to-top';
+backToTopButton.setAttribute('aria-label', 'Back to top');
 backToTopButton.style.cssText = `
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-green);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    font-size: 18px;
+    position: fixed; bottom: 20px; right: 20px;
+    width: 50px; height: 50px;
+    background-color: #C2D400; color: #0F1D2E;
+    border: none; border-radius: 50%; cursor: pointer;
+    display: none; align-items: center; justify-content: center;
+    z-index: 1000; transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 18px;
 `;
-
 document.body.appendChild(backToTopButton);
 
 backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.style.display = 'block';
-    } else {
-        backToTopButton.style.display = 'none';
-    }
+    backToTopButton.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
 });
 
-// Add hover effect to back to top button (desktop only)
 if (window.matchMedia('(hover: hover)').matches) {
     backToTopButton.addEventListener('mouseenter', () => {
         backToTopButton.style.transform = 'translateY(-3px)';
         backToTopButton.style.boxShadow = '0 6px 20px rgba(0,0,0,0.25)';
     });
-
     backToTopButton.addEventListener('mouseleave', () => {
-        backToTopButton.style.transform = 'translateY(0)';
+        backToTopButton.style.transform = '';
         backToTopButton.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
     });
 }
 
-// Mobile-specific enhancements
+// ============================================================
+// DOMContentLoaded
+// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Add touch feedback for buttons
-    const buttons = document.querySelectorAll('.btn, .nav-link, .back-to-top');
-    buttons.forEach(button => {
-        button.addEventListener('touchstart', () => {
-            button.style.transform = 'scale(0.95)';
+
+    // --- Contact forms (index.html + contact.html) ---
+    document.querySelectorAll('.contact-form').forEach(form => {
+        attachRealTimeValidation(form);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!validateForm(form)) return;
+
+            const data = new FormData(form);
+            const name    = data.get('name') || '';
+            const email   = data.get('email') || '';
+            const phone   = data.get('phone') || 'Not provided';
+            const subject = data.get('subject') || 'General Inquiry';
+            const message = data.get('message') || '';
+
+            const mailBody = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
+            window.location.href = `mailto:contact@flockinrecruitment.com?subject=${encodeURIComponent('Website Enquiry - ' + subject)}&body=${encodeURIComponent(mailBody)}`;
+
+            showFormSuccess(
+                form,
+                'Message ready to send',
+                'Your email client has opened with your message pre-filled — just hit send. If it didn\'t open, email us directly at <a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a>.'
+            );
         });
-        
+    });
+
+    // --- CV upload form ---
+    const cvForm = document.querySelector('.cv-upload-form');
+    if (cvForm) {
+        attachRealTimeValidation(cvForm);
+        cvForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!validateForm(cvForm)) return;
+
+            const data      = new FormData(cvForm);
+            const firstName = data.get('firstName') || '';
+            const lastName  = data.get('lastName') || '';
+            const email     = data.get('email') || '';
+            const phone     = data.get('phone') || '';
+            const position  = data.get('desiredPosition') || data.get('currentPosition') || '';
+            const experience = data.get('experience') || '';
+            const coverLetter = data.get('coverLetter') || '';
+
+            const mailBody = [
+                `Name: ${firstName} ${lastName}`,
+                `Email: ${email}`,
+                `Phone: ${phone}`,
+                position   ? `Desired Position: ${position}` : '',
+                experience ? `Experience: ${experience}` : '',
+                coverLetter ? `\nCover Letter:\n${coverLetter}` : '',
+                '\n\nPlease find my CV attached.'
+            ].filter(Boolean).join('\n');
+
+            window.location.href = `mailto:contact@flockinrecruitment.com?subject=${encodeURIComponent('CV Submission - ' + firstName + ' ' + lastName)}&body=${encodeURIComponent(mailBody)}`;
+
+            showFormSuccess(
+                cvForm,
+                'Almost there — attach your CV',
+                'Your email client has opened with your details pre-filled. Please attach your CV file and send. If nothing opened, email your CV directly to <a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a> with your name in the subject.'
+            );
+        });
+    }
+
+    // --- Inline CV upload on index.html ---
+    const inlineCvForm = document.querySelector('.cv-upload-form:not(.cv-upload-section .cv-upload-form)');
+    // (handled by the querySelectorAll above if it shares the class — no extra wiring needed)
+
+    // --- Scroll animations ---
+    document.querySelectorAll('.service-card, .location-card, .team-card, .about-card, .contact-card').forEach(el => {
+        el.classList.add('js-animate');
+        scrollObserver.observe(el);
+    });
+
+    // --- Touch feedback ---
+    document.querySelectorAll('.btn, .nav-link').forEach(button => {
+        button.addEventListener('touchstart', () => {
+            button.style.transform = 'scale(0.97)';
+        }, { passive: true });
         button.addEventListener('touchend', () => {
             button.style.transform = '';
         });
     });
-    
-    // Prevent zoom on input focus (iOS)
-    const inputs = document.querySelectorAll('input, textarea, select');
-    inputs.forEach(input => {
+
+    // --- iOS zoom prevention ---
+    document.querySelectorAll('input, textarea, select').forEach(input => {
         input.addEventListener('focus', () => {
-            if (window.innerWidth <= 768) {
-                input.style.fontSize = '16px';
-            }
+            if (window.innerWidth <= 768) input.style.fontSize = '16px';
         });
-    });
-    
-    // Add loading states for forms
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        const submitButton = form.querySelector('button[type="submit"]');
-        if (submitButton) {
-            form.addEventListener('submit', () => {
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                submitButton.disabled = true;
-                
-                // Reset after 3 seconds (simulate form submission)
-                setTimeout(() => {
-                    submitButton.innerHTML = submitButton.getAttribute('data-original-text') || 'Submit';
-                    submitButton.disabled = false;
-                }, 3000);
-            });
-        }
-    });
-    
-    // Store original button text
-    const submitButtons = document.querySelectorAll('button[type="submit"]');
-    submitButtons.forEach(button => {
-        button.setAttribute('data-original-text', button.innerHTML);
     });
 });
 
-// Handle viewport changes (orientation change, resize)
+// ============================================================
+// Resize handler
+// ============================================================
 window.addEventListener('resize', () => {
-    // Close mobile menu on resize if screen becomes larger
-    if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    if (window.innerWidth > 768) closeMenu();
 });
 
-// Add smooth scrolling polyfill for older browsers
-if (!('scrollBehavior' in document.documentElement.style)) {
-    const smoothScrollPolyfill = () => {
-        const links = document.querySelectorAll('a[href^="#"]');
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = target.offsetTop - navbarHeight - 20;
-                    
-                    window.scrollTo(0, targetPosition);
-                }
-            });
-        });
-    };
-    
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', smoothScrollPolyfill);
-    } else {
-        smoothScrollPolyfill();
+// ============================================================
+// CV Form success message
+// ============================================================
+if (window.location.search.includes('submitted=true')) {
+    const wrapper = document.querySelector('.cv-form-wrapper');
+    if (wrapper) {
+        wrapper.innerHTML = `
+            <div style="text-align:center; padding: 60px 20px;">
+                <div style="font-size: 64px; margin-bottom: 20px;">✅</div>
+                <h2 style="color: #1a3c6e; margin-bottom: 16px;">CV Submitted Successfully!</h2>
+                <p style="color: #555; font-size: 18px; margin-bottom: 8px;">Thank you for applying to FlockIn Recruitment.</p>
+                <p style="color: #555; font-size: 16px; margin-bottom: 32px;">We'll review your CV and get back to you within 48 hours if there's a match.</p>
+                <a href="index.html" style="background: #1a3c6e; color: white; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-size: 16px;">Back to Home</a>
+            </div>
+        `;
     }
 }
-
