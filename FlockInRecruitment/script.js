@@ -210,37 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cvForm = document.querySelector('.cv-upload-form');
     if (cvForm) {
         attachRealTimeValidation(cvForm);
-        cvForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (!validateForm(cvForm)) return;
-
-            const data      = new FormData(cvForm);
-            const firstName = data.get('firstName') || '';
-            const lastName  = data.get('lastName') || '';
-            const email     = data.get('email') || '';
-            const phone     = data.get('phone') || '';
-            const position  = data.get('desiredPosition') || data.get('currentPosition') || '';
-            const experience = data.get('experience') || '';
-            const coverLetter = data.get('coverLetter') || '';
-
-            const mailBody = [
-                `Name: ${firstName} ${lastName}`,
-                `Email: ${email}`,
-                `Phone: ${phone}`,
-                position   ? `Desired Position: ${position}` : '',
-                experience ? `Experience: ${experience}` : '',
-                coverLetter ? `\nCover Letter:\n${coverLetter}` : '',
-                '\n\nPlease find my CV attached.'
-            ].filter(Boolean).join('\n');
-
-            window.location.href = `mailto:contact@flockinrecruitment.com?subject=${encodeURIComponent('CV Submission - ' + firstName + ' ' + lastName)}&body=${encodeURIComponent(mailBody)}`;
-
-            showFormSuccess(
-                cvForm,
-                'Almost there — attach your CV',
-                'Your email client has opened with your details pre-filled. Please attach your CV file and send. If nothing opened, email your CV directly to <a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a> with your name in the subject.'
-            );
-        });
     }
 
     // --- Inline CV upload on index.html ---
