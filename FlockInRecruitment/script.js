@@ -206,15 +206,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- CV upload form ---
-    const cvForm = document.querySelector('.cv-upload-form');
-    if (cvForm) {
-        attachRealTimeValidation(cvForm);
-    }
+    // --- CV upload form(s) ---
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxG9rX94Bex_cKolDKiFSnkKGOgfTBOCqxDIeetzWW0MC3buU6LFIkTSXPYCRHUVGXulw/exec';
 
-    // --- Inline CV upload on index.html ---
-    const inlineCvForm = document.querySelector('.cv-upload-form:not(.cv-upload-section .cv-upload-form)');
-    // (handled by the querySelectorAll above if it shares the class — no extra wiring needed)
+    document.querySelectorAll('.cv-upload-form').forEach(cvForm => {
+        attachRealTimeValidation(cvForm);
+
+        const fileInput = cvForm.querySelector('input[type="file"]');
+        if (fileInput) {
+            fileInput.addEventListener('change', () => {
+                const wrapper = fileInput.closest('.file-upload-wrapper');
+                const info = wrapper.querySelector('.file-upload-info');
+                const file = fileInput.files[0];
+
+                wrapper.classList.toggle('has-file', !!file);
+
+                let nameEl = wrapper.querySelector('.file-selected-name');
+                if (file) {
+                    info.querySelector('p').textContent = 'File selected:';
+                    info.querySelector('i').className = 'fas fa-check-circle';
+                    if (!nameEl) {
+                        nameEl = document.createElement('p');
+                        nameEl.className = 'file-selected-name';
+                        info.appendChild(nameEl);
+                    }
+                    nameEl.textContent = file.name;
+                } else {
+                    info.querySelector('p').textContent = 'Click to upload or drag and drop';
+                    info.querySelector('i').className = 'fas fa-cloud-upload-alt';
+                    if (nameEl) nameEl.remove();
+                }
+            });
+        }
+
+        cvForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!validateForm(cvForm)) return;
+
+            const submitBtn = cvForm.querySelector('[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(cvForm);
+                const data = {};
+                formData.forEach((value, key) => {
+                    if (key !== 'cvFile') data[key] = value;
+                });
+
+                const file = fileInput ? fileInput.files[0] : null;
+                if (file) {
+                    const base64 = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result.split(',')[1]);
+                        reader.onerror = reject;
+                        reader.readAsDataURL(file);
+                    });
+                    data.cvFile = base64;
+                    data.cvFileName = file.name;
+                    data.cvFileType = file.type;
+                }
+
+                const res = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(data)
+                });
+
+                const result = await res.json();
+                if (result.success) {
+                    window.location.href = 'https://www.flockinrecruitment.com/thankyou.html';
+                } else {
+                    throw new Error(result.error || 'Submission failed');
+                }
+            } catch (err) {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                alert('Something went wrong. Please try again or email us directly at contact@flockinrecruitment.com');
+            }
+        });
+    });
+
 
     // --- Scroll animations ---
     document.querySelectorAll('.service-card, .location-card, .team-card, .about-card, .contact-card').forEach(el => {

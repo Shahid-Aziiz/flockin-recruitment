@@ -226,12 +226,11 @@ body {
     font-weight: 700;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    display: inline-block;
     border: 2px solid transparent;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    min-height: 44px; /* Better touch target for mobile */
+    min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -857,11 +856,6 @@ body {
     background-color: var(--light-gray);
 }
 
-.team-section {
-    padding: 80px 0;
-    background-color: var(--light-gray);
-}
-
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -976,7 +970,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(46, 125, 50, 0.9);
+    background: rgba(15, 29, 46, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1136,7 +1130,7 @@ body {
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    border: 1px solid rgba(46, 125, 50, 0.1);
+    border: 1px solid rgba(15, 29, 46, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -1154,7 +1148,7 @@ body {
 .contact-info-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border-color: rgba(46, 125, 50, 0.3);
+    border-color: rgba(194, 212, 0, 0.35);
 }
 
 .contact-info-card h3 {
@@ -1180,7 +1174,7 @@ body {
     text-align: center;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(46, 125, 50, 0.1);
+    border: 1px solid rgba(15, 29, 46, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -1198,7 +1192,7 @@ body {
 .contact-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-    border-color: rgba(46, 125, 50, 0.3);
+    border-color: rgba(194, 212, 0, 0.35);
 }
 
 .contact-icon {
@@ -1210,13 +1204,13 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 auto 25px;
-    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.3);
+    box-shadow: 0 10px 25px rgba(194, 212, 0, 0.35);
     transition: all 0.3s ease;
 }
 
 .contact-card:hover .contact-icon {
     transform: scale(1.1);
-    box-shadow: 0 15px 35px rgba(46, 125, 50, 0.4);
+    box-shadow: 0 15px 35px rgba(194, 212, 0, 0.45);
 }
 
 .contact-icon i {
@@ -1260,7 +1254,7 @@ body {
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(46, 125, 50, 0.1);
+    border: 1px solid rgba(15, 29, 46, 0.1);
 }
 
 .form-group {
@@ -1291,7 +1285,7 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-green);
-    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    box-shadow: 0 0 0 3px rgba(15, 29, 46, 0.1);
     transform: translateY(-2px);
 }
 
@@ -1476,6 +1470,23 @@ body {
 .file-upload-info span {
     color: var(--gray);
     font-size: 0.9rem;
+}
+
+.file-upload-wrapper.has-file {
+    border-color: var(--primary-green);
+    background-color: rgba(194, 212, 0, 0.05);
+}
+
+.file-upload-wrapper.has-file .file-upload-info i {
+    color: var(--primary-green);
+}
+
+.file-selected-name {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    word-break: break-all;
 }
 
 .checkbox-group {
@@ -3295,6 +3306,56 @@ body {
 
 .resource-card .btn i {
     margin-right: 8px;
+}
+
+/* Scroll animations */
+.js-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.js-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Form success state */
+.form-success {
+    text-align: center;
+    padding: 60px 40px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-success-icon {
+    font-size: 4rem;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.form-success h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 15px;
+}
+
+.form-success p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+.form-success p a {
+    color: var(--primary-green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-success p a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive design for resources section */
