@@ -182,27 +182,46 @@ if (window.matchMedia('(hover: hover)').matches) {
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Contact forms (index.html + contact.html) ---
+    const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxG9rX94Bex_cKolDKiFSnkKGOgfTBOCqxDIeetzWW0MC3buU6LFIkTSXPYCRHUVGXulw/exec';
+
     document.querySelectorAll('.contact-form').forEach(form => {
         attachRealTimeValidation(form);
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             if (!validateForm(form)) return;
 
-            const data = new FormData(form);
-            const name    = data.get('name') || '';
-            const email   = data.get('email') || '';
-            const phone   = data.get('phone') || 'Not provided';
-            const subject = data.get('subject') || 'General Inquiry';
-            const message = data.get('message') || '';
+            const submitBtn = form.querySelector('[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
 
-            const mailBody = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
-            window.location.href = `mailto:contact@flockinrecruitment.com?subject=${encodeURIComponent('Website Enquiry - ' + subject)}&body=${encodeURIComponent(mailBody)}`;
+            try {
+                const formData = new FormData(form);
+                const data = {
+                    type: 'contact',
+                    name:    formData.get('name') || '',
+                    email:   formData.get('email') || '',
+                    phone:   formData.get('phone') || 'Not provided',
+                    subject: formData.get('subject') || 'General Inquiry',
+                    message: formData.get('message') || ''
+                };
 
-            showFormSuccess(
-                form,
-                'Message ready to send',
-                'Your email client has opened with your message pre-filled — just hit send. If it didn\'t open, email us directly at <a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a>.'
-            );
+                const res = await fetch(CONTACT_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(data)
+                });
+
+                const result = await res.json();
+                if (result.success) {
+                    window.location.href = 'https://www.flockinrecruitment.com/thankyou.html';
+                } else {
+                    throw new Error(result.error || 'Submission failed');
+                }
+            } catch (err) {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                alert('Something went wrong. Please try again or email us directly at contact@flockinrecruitment.com');
+            }
         });
     });
 
