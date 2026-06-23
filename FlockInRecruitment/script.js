@@ -182,46 +182,12 @@ if (window.matchMedia('(hover: hover)').matches) {
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Contact forms (index.html + contact.html) ---
-    const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxG9rX94Bex_cKolDKiFSnkKGOgfTBOCqxDIeetzWW0MC3buU6LFIkTSXPYCRHUVGXulw/exec';
-
     document.querySelectorAll('.contact-form').forEach(form => {
         attachRealTimeValidation(form);
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (!validateForm(form)) return;
-
-            const submitBtn = form.querySelector('[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-
-            try {
-                const formData = new FormData(form);
-                const data = {
-                    type: 'contact',
-                    name:    formData.get('name') || '',
-                    email:   formData.get('email') || '',
-                    phone:   formData.get('phone') || 'Not provided',
-                    subject: formData.get('subject') || 'General Inquiry',
-                    message: formData.get('message') || ''
-                };
-
-                const res = await fetch(CONTACT_SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(data)
-                });
-
-                const result = await res.json();
-                if (result.success) {
-                    window.location.href = 'https://www.flockinrecruitment.com/thankyou.html';
-                } else {
-                    throw new Error(result.error || 'Submission failed');
-                }
-            } catch (err) {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                alert('Something went wrong. Please try again or email us directly at contact@flockinrecruitment.com');
-            }
+            form.submit();
         });
     });
 
