@@ -3,42 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlockIn - Recruitment</title>
+    <title>Thank You - FlockIn Recruitment</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { margin: 0; }
+
+        .ty-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0F1D2E 0%, #1a3c6e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ty-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .ty-card-header {
+            background: #0F1D2E;
+            padding: 28px 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .ty-card-header img {
+            height: 52px;
+        }
+
+        .ty-card-header-text {
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .ty-card-header-text strong {
+            display: block;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .ty-card-header-text span {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+        }
+
+        .ty-card-body {
+            padding: 44px 40px 40px;
+            text-align: center;
+        }
+
+        .ty-icon-wrap {
+            width: 76px;
+            height: 76px;
+            background: linear-gradient(135deg, #d4edda, #b8dfc3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.18);
+        }
+
+        .ty-icon-wrap i {
+            font-size: 34px;
+            color: #2e7d32;
+        }
+
+        .ty-card-body h1 {
+            color: #0F1D2E;
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 12px;
+        }
+
+        .ty-card-body .ty-sub {
+            color: #555;
+            font-size: 16px;
+            margin: 0 0 6px;
+            line-height: 1.6;
+        }
+
+        .ty-card-body .ty-note {
+            color: #888;
+            font-size: 14px;
+            margin: 0 0 32px;
+        }
+
+        .ty-divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 0 0 24px;
+        }
+
+        .ty-follow-label {
+            color: #888;
+            font-size: 13px;
+            margin: 0 0 20px;
+        }
+
+        .ty-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ty-btn-home {
+            background: #0F1D2E;
+            color: #fff;
+            padding: 13px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .ty-btn-home:hover { background: #1a3c6e; }
+
+        .ty-btn-linkedin {
+            background: #0077b5;
+            color: #fff;
+            padding: 13px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .ty-btn-linkedin:hover { background: #005f8e; }
+
+        @media (max-width: 480px) {
+            .ty-card-body { padding: 36px 24px 32px; }
+            .ty-actions { flex-direction: column; }
+            .ty-btn-home, .ty-btn-linkedin { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="logo.png" alt="FlockIn Recruitment" class="logo">
-                <div class="nav-brand-name">FlockIn Recruitment<span>Moving Forward Together</span></div>
+    <div class="ty-page">
+        <div class="ty-card">
+            <div class="ty-card-header">
+                <img src="logo.png" alt="FlockIn Recruitment">
+                <div class="ty-card-header-text">
+                    <strong>FlockIn Recruitment</strong>
+                    <span>Moving Forward Together</span>
+                </div>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></li>
-                <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="cv-upload.html" class="nav-link">Upload Resume</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section style="min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 20px;">
-        <div>
-            <img src="logo.png" alt="FlockIn Recruitment" style="height: 72px; margin-bottom: 24px; display: block; margin-left: auto; margin-right: auto;">
-            <div style="font-size: 56px; margin-bottom: 20px;">✅</div>
-            <h1 style="color: #1a3c6e; font-size: 36px; margin-bottom: 16px;">Submitted Successfully!</h1>
-            <p style="color: #555; font-size: 18px; margin-bottom: 8px;">Thank you for reaching out to FlockIn Recruitment.</p>
-            <p style="color: #555; font-size: 16px; margin-bottom: 36px;">We'll review your message and get back to you within 48 hours.</p>
-            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                <a href="index.html" style="background: #1a3c6e; color: white; padding: 14px 36px; border-radius: 6px; text-decoration: none; font-size: 16px; font-weight: 600;">Back to Home</a>
-                <a href="https://www.linkedin.com/company/flockinrecruitment/" target="_blank" rel="noopener noreferrer" style="background: #0077b5; color: white; padding: 14px 36px; border-radius: 6px; text-decoration: none; font-size: 16px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="fab fa-linkedin"></i> Follow us on LinkedIn</a>
+            <div class="ty-card-body">
+                <div class="ty-icon-wrap">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h1>Submitted Successfully!</h1>
+                <p class="ty-sub">Thank you for reaching out to FlockIn Recruitment.</p>
+                <p class="ty-note">We'll review your message and get back to you within 48 hours.</p>
+                <hr class="ty-divider">
+                <p class="ty-follow-label">Stay connected for the latest opportunities</p>
+                <div class="ty-actions">
+                    <a href="index.html" class="ty-btn-home">Back to Home</a>
+                    <a href="https://www.linkedin.com/company/flockinrecruitment/" target="_blank" rel="noopener noreferrer" class="ty-btn-linkedin">
+                        <i class="fab fa-linkedin"></i> Follow on LinkedIn
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
