@@ -57,7 +57,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const el = document.getElementById('rotator');
     if (!el) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const words = ['finance', 'tech', 'legal', 'engineering', 'healthcare', 'RPO'];
+    const words = ['finance', 'tech', 'legal', 'engineering', 'healthcare', 'manufacturing'];
     let i = 0;
     setInterval(() => {
         i = (i + 1) % words.length;
