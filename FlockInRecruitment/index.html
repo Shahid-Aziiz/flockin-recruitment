@@ -1,477 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="logo.png">
-    <title>FlockIn - Recruitment</title>
-    <meta name="description" content="FlockIn Recruitment connects exceptional talent with outstanding opportunities across Pakistan and beyond. Moving Forward Together.">
-    <meta name="keywords" content="recruitment, staffing, jobs, Pakistan, Lahore, hiring, talent">
-    <link rel="canonical" href="https://www.flockinrecruitment.com/">
-    <meta property="og:title" content="FlockIn Recruitment - Moving Forward Together">
-    <meta property="og:description" content="Connecting exceptional talent with outstanding opportunities across Pakistan and beyond.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.flockinrecruitment.com/">
-    <meta name="twitter:card" content="summary">
-    <meta name="theme-color" content="#0F1D2E">
-    <link rel="icon" href="logo.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlockIn Recruitment — Moving Forward Together</title>
+  <meta name="description" content="FlockIn Recruitment connects businesses in the USA and Europe with exceptional talent across Tech, Finance, Legal, Engineering, and Healthcare.">
+  <meta name="keywords" content="recruitment, staffing, jobs, USA, Europe, hiring, talent, tech, finance, legal">
+  <link rel="canonical" href="https://www.flockinrecruitment.com/">
+  <meta property="og:title" content="FlockIn Recruitment — Moving Forward Together">
+  <meta property="og:description" content="Connecting businesses in the USA and Europe with exceptional talent in Tech, Finance, Legal, Engineering, and Healthcare.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.flockinrecruitment.com/">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#0B1F33">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="logo.png" alt="FlockIn Recruitment" class="logo">
-                <div class="nav-brand-name">FlockIn Recruitment<span>Moving Forward Together</span></div>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a href="cv-upload.html" class="nav-link">Upload Resume</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo-link">
+      <img src="logo.png" alt="FlockIn Recruitment" class="header-logo">
+      <div class="brand-text">FlockIn<span>Moving Forward Together</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialisms">Specialisms</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="cv-upload.html" class="btn btn-ghost">Upload Resume</a>
+      <a href="contact.html" class="btn btn-gold">Hire Talent</a>
+    </div>
+    <button class="burger" aria-label="Toggle menu">
+      <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialisms">Specialisms</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="mobile-cta">
+      <a href="cv-upload.html" class="btn btn-ghost">Upload Resume</a>
+      <a href="contact.html" class="btn btn-gold">Hire Talent</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <p class="eyebrow">Specialist Recruitment &middot; USA &amp; Europe</p>
+    <h1>We're here to make <span class="rotator" id="rotator">finance</span> hiring better.</h1>
+    <p class="lead">FlockIn Recruitment partners with businesses across the USA and Europe to connect them with the right talent in Tech, Finance, Legal, Engineering, and Healthcare. We handle the full process so you spend your time meeting people worth hiring.</p>
+
+    <div class="trust reveal">
+      <div class="stat"><b data-count="20" data-suffix="+">0+</b><span>PLACEMENTS MADE</span></div>
+      <div class="stat"><b data-count="10" data-suffix="+">0+</b><span>COMPANIES SERVED</span></div>
+      <div class="stat"><b>48hr</b><span>AVG RESPONSE TIME</span></div>
+      <div class="stat"><b data-count="2">0</b><span>CONTINENTS COVERED</span></div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-gold">Hire Talent</a>
+      <a href="cv-upload.html" class="btn btn-ghost">Upload Your Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">About us</p>
+      <h2>A recruitment partner that actually gets it right.</h2>
+      <p>We combine genuine industry knowledge with a hands-on approach. No bulk sourcing, no CV farms. Just a focused team that takes every brief seriously and delivers candidates worth interviewing.</p>
+    </div>
+    <div class="split reveal">
+      <div class="panel">
+        <p class="eyebrow">Our mission</p>
+        <h3>Connect the right people with the right opportunities.</h3>
+        <p>We work with clients in the USA and Europe, taking the time to understand the role, the team, and what a genuine fit actually looks like in practice.</p>
+        <ul>
+          <li>Dedicated recruiter per search, not a call centre</li>
+          <li>Every candidate personally spoken to before submission</li>
+          <li>Quick turnaround. Most searches active within 24 hours.</li>
+          <li>One point of contact from brief to placement</li>
+        </ul>
+        <a href="#contact" class="btn btn-dark">Get in touch</a>
+      </div>
+      <div class="panel dark">
+        <p class="eyebrow">How we work</p>
+        <h3>Fewer candidates. Better ones.</h3>
+        <p>We would rather send two profiles we genuinely believe in than ten we are not sure about. A shortlist should be a recommendation, not a lucky dip.</p>
+        <ul>
+          <li>No padding the shortlist. Only genuine fits.</li>
+          <li>Honest feedback at every stage of the process</li>
+          <li>Post-placement check-ins. We care about retention.</li>
+          <li>Transparent on fees and timelines from day one</li>
+        </ul>
+        <a href="contact.html" class="btn btn-gold">Start a search</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPECIALISMS ============ -->
+<section id="specialisms" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">What we cover</p>
+      <h2>Five sectors. Deep expertise in each.</h2>
+      <p>Our consultants recruit only within their discipline. They know the market, the candidates, and what a strong hire looks like.</p>
+    </div>
+    <div class="grid-spec reveal">
+      <div class="spec">
+        <span class="num">01</span>
+        <div>
+          <h3>Technology</h3>
+          <p>Engineering, data, product, and cyber across the USA and Europe.</p>
         </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">We Find the Right People for Your Business</h1>
-                <p class="hero-subtitle">FlockIn Recruitment is a global recruitment partner helping businesses across the USA and Europe hire the right talent in Tech, Finance, Legal, Engineering, and Healthcare.</p>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">20+</div>
-                        <div class="hero-stat-label">Placements Made</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">10+</div>
-                        <div class="hero-stat-label">Companies Served</div>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">What We Do</a>
-                    <a href="#contact" class="btn btn-secondary">Talk to Us</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="hero-image.jpg.png" alt="FlockIn Recruitment" class="hero-img">
-            </div>
+      </div>
+      <div class="spec">
+        <span class="num">02</span>
+        <div>
+          <h3>Finance</h3>
+          <p>From financial analysts to CFOs across all verticals.</p>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title">About FlockIn Recruitment</h2>
-            <div class="about-content">
-                <div class="about-intro">
-                    <div class="about-logo">
-                        <img src="logo.png" alt="FlockIn Recruitment Logo" class="about-logo-img">
-                    </div>
-                    <h3>A Recruitment Partner That Actually Gets It Right</h3>
-                    <p class="about-lead">At FlockIn Recruitment, we make hiring simple and effective. We work with clients across the USA and Europe, connecting them with the right talent in Tech, Finance, Legal, Engineering, and Healthcare. We handle the full process so our clients spend their time meeting people worth hiring, not sorting through CVs.</p>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-card">
-                        <div class="about-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h4>Our Mission</h4>
-                        <p>To connect the right people with the right opportunities. We combine genuine industry knowledge with smart tools to help businesses grow and professionals find roles that actually fit.</p>
-                    </div>
-
-                    <div class="about-card">
-                        <div class="about-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h4>Our Vision</h4>
-                        <p>To be the recruitment partner that businesses across the USA and Europe trust and come back to, because we consistently deliver people who perform.</p>
-                    </div>
-
-                    <div class="about-card">
-                        <div class="about-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>What We Do</h4>
-                        <p>Full 360° recruitment, Offshore RPO, and Salesforce Administration support. We handle everything from sourcing to placement, tailored around each client.</p>
-                    </div>
-                </div>
-
-                <div class="about-description">
-                    <h3>Industries We Work In</h3>
-                    <p>We work across five sectors and have built real knowledge in each one. That means we know what a strong candidate looks like for your specific role, not just what the job description says.</p>
-
-                    <div class="industries-grid">
-                        <div class="industry-item">
-                            <i class="fas fa-laptop-code"></i>
-                            <span>Tech</span>
-                        </div>
-                        <div class="industry-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Finance</span>
-                        </div>
-                        <div class="industry-item">
-                            <i class="fas fa-balance-scale"></i>
-                            <span>Legal</span>
-                        </div>
-                        <div class="industry-item">
-                            <i class="fas fa-cogs"></i>
-                            <span>Engineering</span>
-                        </div>
-                        <div class="industry-item">
-                            <i class="fas fa-heartbeat"></i>
-                            <span>Healthcare</span>
-                        </div>
-                    </div>
-
-                    <p>Every search gets a dedicated recruiter who understands the role, the industry, and what a genuine fit looks like in practice.</p>
-                </div>
-
-                </div>
-
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-user-check"></i>
-                        </div>
-                        <h3>20+</h3>
-                        <p>Placements Made</p>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3>10+</h3>
-                        <p>Companies Served</p>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3>2</h3>
-                        <p>Continents Covered</p>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>48hr</h3>
-                        <p>Average Response Time</p>
-                    </div>
-                </div>
-
-                <div class="about-values">
-                    <h3>How We Work</h3>
-                    <div class="values-list">
-                        <div class="value-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <div>
-                                <h4>No Padding the Shortlist</h4>
-                                <p>We only send candidates we'd genuinely recommend. We'd rather send two strong profiles than five weak ones to seem busy.</p>
-                            </div>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-bullseye"></i>
-                            <div>
-                                <h4>We Screen Properly</h4>
-                                <p>Every candidate we put forward has been spoken to. We check experience, communication, and fit before they ever reach your desk.</p>
-                            </div>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Quick Turnaround</h4>
-                                <p>Most searches are active within 24 hours of briefing. Urgent roles can be turned around faster when needed.</p>
-                            </div>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-headset"></i>
-                            <div>
-                                <h4>One Point of Contact</h4>
-                                <p>You deal with the same person from brief to placement, not a different consultant every time you call.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="spec">
+        <span class="num">03</span>
+        <div>
+          <h3>Legal</h3>
+          <p>In-house counsel, compliance, and regulatory specialists.</p>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-overview">
-        <div class="container">
-            <h2 class="section-title">What We Do</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>360° Recruitment</h3>
-                    <p>We handle everything from sourcing and screening to interviewing and placement. You tell us what you need once, and we come back with candidates worth your time.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Smarter Talent Search</h3>
-                    <p>We use modern tools to find and evaluate candidates faster without cutting corners on quality. You get the right person sooner, not just the first available one.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Offshore RPO Support</h3>
-                    <p>We act as an extension of your recruitment team for businesses in the USA and Europe. Scalable, reliable, and cost-effective support without the overhead.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Salesforce Administration</h3>
-                    <p>We help recruitment teams get more out of Salesforce by keeping workflows clean, data accurate, and the system working the way it should.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Candidate Placement</h3>
-                    <p>Looking for work? Send us your resume and we will match you to real roles in Tech, Finance, Legal, Engineering, and Healthcare that suit your background.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Dedicated Account Support</h3>
-                    <p>Every client works with one point of contact from start to finish. No handoffs, no confusion, just one person who knows your requirements and delivers.</p>
-                </div>
-            </div>
+      </div>
+      <div class="spec">
+        <span class="num">04</span>
+        <div>
+          <h3>Engineering</h3>
+          <p>Technical, infrastructure, and operations talent.</p>
         </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="values-section">
-        <div class="container">
-            <h2 class="section-title">What We Stand For</h2>
-            <p class="section-subtitle">Three things we don't compromise on</p>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Honesty</h3>
-                    <p>We tell clients when a role is hard to fill, and we tell candidates when they're not the right fit. It saves everyone time and builds trust that lasts beyond a single placement.</p>
-                    <div class="value-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Straight feedback, no padding</span>
-                    </div>
-                    <div class="value-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Clear on fees and timelines upfront</span>
-                    </div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Quality Over Volume</h3>
-                    <p>We would rather send two candidates we believe in than ten we are not sure about. A shortlist should be a genuine recommendation, not a lucky dip.</p>
-                    <div class="value-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Every CV personally reviewed</span>
-                    </div>
-                    <div class="value-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>No bulk-applying on your behalf</span>
-                    </div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Long-Term Thinking</h3>
-                    <p>We care about whether the placement works out, not just whether it happens. A hire that doesn't last is bad for the client, bad for the candidate, and bad for us.</p>
-                    <div class="value-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Post-placement check-ins</span>
-                    </div>
-                    <div class="value-feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Relationships, not transactions</span>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="spec">
+        <span class="num">05</span>
+        <div>
+          <h3>Healthcare</h3>
+          <p>Clinical professionals and health-tech talent.</p>
         </div>
-    </section>
-
-    <!-- Locations Section -->
-    <section class="locations">
-        <div class="container">
-            <h2 class="section-title">Our Location</h2>
-            <div class="locations-grid">
-                <div class="location-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</h3>
-                    <p>C-2 Main Bahar Shah Road,<br>Lahore Cantt, Lahore, Pakistan</p>
-                </div>
-            </div>
+      </div>
+      <div class="spec">
+        <span class="num">06</span>
+        <div>
+          <h3>Manufacturing</h3>
+          <p>Production, operations, and supply chain talent across the USA and Europe.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="section-subtitle">We respond to every message within one working day</p>
-            <div class="contact-layout">
-                <div class="contact-form-section">
-                    <form class="contact-form" action="https://formsubmit.co/dihahs.07@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New Enquiry - FlockIn Recruitment">
-                        <input type="hidden" name="_next" value="https://www.flockinrecruitment.com/thankyou.html">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactEmail">Email Address *</label>
-                                <input type="email" id="contactEmail" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="contactPhone">Phone Number</label>
-                            <input type="tel" id="contactPhone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select a subject</option>
-                                <option value="recruitment">Recruitment Services</option>
-                                <option value="executive">Executive Search</option>
-                                <option value="resume">Resume Submission</option>
-                                <option value="general">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info-section">
-                    <div class="contact-info-card">
-                        <h3><i class="fas fa-phone"></i> Phone</h3>
-                        <p>+92 3300767851</p>
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    </div>
-                    <div class="contact-info-card">
-                        <h3><i class="fas fa-envelope"></i> Email</h3>
-                        <p>contact@flockinrecruitment.com</p>
-                    </div>
-                    <div class="contact-info-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
-                        <p>C-2 Main Bahar Shah Road,<br>Lahore Cantt, Lahore, Pakistan</p>
-                    </div>
-                </div>
-            </div>
+<!-- ============ SERVICES ============ -->
+<section class="services-section" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Our services</p>
+      <h2>Everything from sourcing to placement.</h2>
+      <p>We handle the full recruitment process so you spend your time on conversations that matter, not inbox management.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon"><i class="fas fa-sync-alt"></i></div>
+        <h3>360° Recruitment</h3>
+        <p>We manage the entire process end to end: sourcing, screening, shortlisting, interview coordination, and offer management. You brief us once and we come back with candidates worth your time.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon"><i class="fas fa-search"></i></div>
+        <h3>Smarter Talent Search</h3>
+        <p>We use modern tools to surface and evaluate candidates faster without cutting corners on quality. You get the right person sooner, not just the first available one.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon"><i class="fas fa-globe"></i></div>
+        <h3>Offshore RPO Support</h3>
+        <p>For businesses in the USA and Europe that need scalable, reliable recruitment support without the overhead. We act as a seamless extension of your existing team.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon"><i class="fas fa-cloud"></i></div>
+        <h3>Salesforce Administration</h3>
+        <p>We help recruitment teams get more out of Salesforce, keeping workflows clean, data accurate, and the system working the way it should so your team can focus on hiring.</p>
+      </div>
+    </div>
+    <div style="margin-top: 32px;">
+      <a href="contact.html" class="btn btn-gold">Talk to us about your needs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAND ============ -->
+<div class="band">
+  <div class="wrap">
+    <div class="stat reveal"><b data-count="20" data-suffix="+">0+</b><span>PLACEMENTS MADE</span></div>
+    <div class="stat reveal"><b data-count="10" data-suffix="+">0+</b><span>COMPANIES SERVED</span></div>
+    <div class="stat reveal"><b>48hr</b><span>AVG RESPONSE TIME</span></div>
+    <div class="stat reveal"><b data-count="2">0</b><span>CONTINENTS COVERED</span></div>
+  </div>
+</div>
+
+<!-- ============ VALUES ============ -->
+<section id="values">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">What we stand for</p>
+      <h2>Three things we don't compromise on.</h2>
+      <p>These are the principles behind every search we run and every candidate we put forward.</p>
+    </div>
+    <div class="insight-grid">
+      <div class="card reveal">
+        <div class="thumb">
+          <i class="fas fa-shield-alt"></i>
         </div>
-    </section>
-
-    <!-- Resume Upload Section -->
-    <section id="cv-upload" class="cv-upload-section">
-        <div class="container" style="text-align: center; padding: 60px 20px;">
-            <h2 class="section-title">Submit Your Resume</h2>
-            <p class="section-subtitle">We review every resume we receive and only get in touch when there's a real match</p>
-            <div class="cv-timeline">
-                <div class="timeline-item">
-                    <i class="fas fa-clock"></i>
-                    <span>We'll reply within 48 hours</span>
-                </div>
-                <div class="timeline-item">
-                    <i class="fas fa-bolt"></i>
-                    <span>No generic job alerts. Only roles that genuinely fit your background</span>
-                </div>
-            </div>
-            <a href="cv-upload.html" class="btn btn-primary btn-large" style="margin-top: 32px; display: inline-block;">
-                <i class="fas fa-file-upload"></i> Upload Your Resume
-            </a>
+        <div class="body">
+          <span class="cat">Principle 01</span>
+          <h3>Honesty</h3>
+          <p>We tell clients when a role is hard to fill, and we tell candidates when they're not the right fit. Straight feedback saves everyone time and builds trust that lasts beyond a single placement.</p>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Let's Have a Conversation</h2>
-                <p>Hiring for a role or looking for your next move? A quick call is usually the best place to start. No forms, no pressure.</p>
-                <div class="cta-buttons">
-                    <a href="cv-upload.html" class="btn btn-primary">Submit Your Resume</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-                </div>
-            </div>
+      </div>
+      <div class="card reveal">
+        <div class="thumb b">
+          <i class="fas fa-star"></i>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>FlockIn Recruitment</h3>
-                    <p class="footer-tagline">Moving Forward Together</p>
-                    <p>AI-Driven Offshore RPO and 360° Recruitment Solutions for the USA and Europe</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/flockinrecruitment/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> +92 3300767851</p>
-                    <p><i class="fas fa-envelope"></i> contact@flockinrecruitment.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> C-2 Main Bahar Shah Road, Lahore Cantt</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; 2026 FlockIn Recruitment. All rights reserved.</p>
-                    <p><a href="privacy-policy.html" class="footer-link">Privacy Policy</a> | <a href="terms-of-service.html" class="footer-link">Terms of Service</a></p>
-                </div>
-            </div>
+        <div class="body">
+          <span class="cat">Principle 02</span>
+          <h3>Quality Over Volume</h3>
+          <p>We'd rather send two candidates we believe in than ten we're not sure about. Every CV we put forward has been reviewed and spoken to. No bulk-applying on your behalf.</p>
         </div>
-    </footer>
+      </div>
+      <div class="card reveal">
+        <div class="thumb c">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="body">
+          <span class="cat">Principle 03</span>
+          <h3>Long-Term Thinking</h3>
+          <p>We care about whether the placement works out, not just whether it happens. A hire that doesn't last is bad for the client, bad for the candidate, and bad for us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="display:block;margin-bottom:12px;">Let's talk</p>
+    <h2>Hiring, or hunting? Start a conversation.</h2>
+    <p>Tell us what you're looking for and we'll point you to the right specialist, usually within a day.</p>
+    <div class="row">
+      <a href="contact.html" class="btn btn-gold">Hire Talent</a>
+      <a href="cv-upload.html" class="btn btn-ghost">Upload Your Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo-link" style="margin-bottom:14px;">
+          <img src="logo.png" alt="FlockIn Recruitment" class="header-logo">
+          <div class="brand-text">FlockIn<span>Moving Forward Together</span></div>
+        </a>
+        <p style="font-size:14px;max-width:30ch;line-height:1.6;">Specialist recruitment across Tech, Finance, Legal, Engineering, and Healthcare for businesses in the USA and Europe.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/flockinrecruitment/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Specialisms</h4>
+        <ul>
+          <li><a href="#specialisms">Technology</a></li>
+          <li><a href="#specialisms">Finance</a></li>
+          <li><a href="#specialisms">Legal</a></li>
+          <li><a href="#specialisms">Engineering</a></li>
+          <li><a href="#specialisms">Healthcare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cv-upload.html">Upload Resume</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a></li>
+          <li><a href="tel:+13239849907">+1 323 984 9907</a></li>
+          <li><a href="#">C-2 Main Bahar Shah Road, Lahore Cantt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>&copy; 2026 FlockIn Recruitment. All rights reserved.</span>
+      <span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        &nbsp;&middot;&nbsp;
+        <a href="terms-of-service.html">Terms of Service</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

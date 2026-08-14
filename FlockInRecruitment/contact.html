@@ -1,213 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlockIn - Recruitment</title>
-    <meta name="description" content="Get in touch with FlockIn Recruitment. Call, email, or send a message — we respond to every enquiry within one working day.">
-    <link rel="icon" href="logo.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — FlockIn Recruitment</title>
+  <meta name="description" content="Get in touch with FlockIn Recruitment. Call, email, or send a message — we respond to every enquiry within one working day.">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="logo.png" alt="FlockIn Recruitment" class="logo">
-                <div class="nav-brand-name">FlockIn Recruitment<span>Moving Forward Together</span></div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo-link">
+      <img src="logo.png" alt="FlockIn Recruitment" class="header-logo">
+      <div class="brand-text">FlockIn<span>Moving Forward Together</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#specialisms">Specialisms</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="cv-upload.html" class="btn btn-ghost">Upload Resume</a>
+      <a href="contact.html" class="btn btn-gold">Hire Talent</a>
+    </div>
+    <button class="burger" aria-label="Toggle menu">
+      <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#specialisms">Specialisms</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-cta">
+      <a href="cv-upload.html" class="btn btn-ghost">Upload Resume</a>
+      <a href="contact.html" class="btn btn-gold">Hire Talent</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h1>Let's have a conversation.</h1>
+    <p>Hiring for a role or looking for your next move? We respond to every enquiry within one working day.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT MAIN ============ -->
+<section>
+  <div class="wrap">
+
+    <!-- Contact info tiles -->
+    <div class="contact-cards-row reveal">
+      <div class="contact-info-tile">
+        <div class="tile-icon"><i class="fas fa-phone"></i></div>
+        <h3>Phone</h3>
+        <p>+1 323 984 9907</p>
+        <p>Monday to Friday, 9:00 AM to 6:00 PM</p>
+      </div>
+      <div class="contact-info-tile">
+        <div class="tile-icon"><i class="fas fa-envelope"></i></div>
+        <h3>Email</h3>
+        <p>contact@flockinrecruitment.com</p>
+        <p>We aim to reply within one working day.</p>
+      </div>
+      <div class="contact-info-tile">
+        <div class="tile-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h3>Office</h3>
+        <p>C-2 Main Bahar Shah Road</p>
+        <p>Lahore Cantt, Lahore, Pakistan</p>
+      </div>
+    </div>
+
+    <!-- Form + sidebar -->
+    <div class="contact-layout">
+      <div class="form-panel reveal">
+        <h2>Send a message</h2>
+        <p>Fill in the form and we'll get back to you within one working day.</p>
+        <form class="contact-form" action="https://formsubmit.co/dihahs.07@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Enquiry — FlockIn Recruitment">
+          <input type="hidden" name="_next" value="https://www.flockinrecruitment.com/thankyou.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="John Smith">
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#about" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#services" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link active">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a href="cv-upload.html" class="nav-link">Upload Resume</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="john@company.com">
             </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a subject</option>
+              <option value="recruitment">Recruitment Services</option>
+              <option value="executive">Executive Search</option>
+              <option value="rpo">Offshore RPO</option>
+              <option value="resume">Resume Submission</option>
+              <option value="general">General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell us about the role you're hiring for, or how we can help…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold submit-btn btn-primary-form">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-sidebar">
+        <div class="sidebar-block reveal">
+          <h3>For Employers</h3>
+          <p>Looking to hire? Tell us the role and we'll be in touch within a day to discuss your requirements.</p>
+          <ul>
+            <li>360 degree recruitment. We handle everything end to end.</li>
+            <li>Offshore RPO for scalable, cost-effective support</li>
+            <li>Salesforce administration and CRM support</li>
+            <li>Dedicated account manager from brief to placement</li>
+          </ul>
         </div>
-    </nav>
-
-    <!-- Contact Hero Section -->
-    <section class="contact-hero">
-        <div class="container">
-            <div class="contact-hero-content">
-                <h1 class="contact-hero-title">Get in Touch</h1>
-                <p class="contact-hero-subtitle">We respond to every enquiry within one working day</p>
-            </div>
+        <div class="sidebar-block dark reveal">
+          <h3>For Candidates</h3>
+          <p>Looking for your next move? Upload your resume and we'll reach out when there's a genuine match.</p>
+          <ul>
+            <li>No spam. Only roles that fit your background.</li>
+            <li>Honest salary benchmarking for your market</li>
+            <li>Interview prep and feedback at every stage</li>
+          </ul>
+          <a href="cv-upload.html" class="btn btn-gold" style="margin-top:12px;">Upload your resume</a>
         </div>
-    </section>
-
-    <!-- Contact Information -->
-    <section class="contact-info-section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>Phone</h3>
-                    <p>+92 3300767851</p>
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <p>contact@flockinrecruitment.com</p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Address</h3>
-                    <p>C-2 Main Bahar Shah Road,<br>Lahore Cantt, Lahore, Pakistan</p>
-                </div>
-            </div>
+        <div class="sidebar-block reveal">
+          <h3>Follow Us</h3>
+          <p>Stay connected for the latest opportunities and market insights.</p>
+          <div class="social-links" style="margin-top: 14px;">
+            <a href="https://www.linkedin.com/company/flockinrecruitment/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Form and Locations -->
-    <section class="contact-main">
-        <div class="container">
-            <div class="contact-layout">
-                <!-- Contact Form -->
-                <div class="contact-form-section">
-                    <h2>Send a Message</h2>
-                    <form class="contact-form" action="https://formsubmit.co/dihahs.07@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New Enquiry - FlockIn Recruitment">
-                        <input type="hidden" name="_next" value="https://www.flockinrecruitment.com/thankyou.html">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select a subject</option>
-                                <option value="recruitment">Recruitment Services</option>
-                                <option value="executive">Executive Search</option>
-                                <option value="resume">Resume Submission</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+<!-- ============ MAP ============ -->
+<div class="map-section">
+  <div class="wrap">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.2!2d74.3587!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zTGFob3JlIENhbnR0!5e0!3m2!1sen!2spk!4v1234567890"
+        width="100%" height="400"
+        style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
 
-                <!-- Office Locations -->
-                <div class="locations-section">
-                    <h2>Our Office</h2>
-                    <div class="office-locations">
-                        <div class="office-card">
-                            <h3><i class="fas fa-map-marker-alt"></i> Lahore Office</h3>
-                            <p>C-2 Main Bahar Shah Road,<br>Lahore Cantt, Lahore, Pakistan</p>
-                            <div class="office-contact">
-                                <p><i class="fas fa-phone"></i> +92 3300767851</p>
-                                <p><i class="fas fa-envelope"></i> contact@flockinrecruitment.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo-link" style="margin-bottom:14px;">
+          <img src="logo.png" alt="FlockIn Recruitment" class="header-logo">
+          <div class="brand-text">FlockIn<span>Moving Forward Together</span></div>
+        </a>
+        <p style="font-size:14px;max-width:30ch;line-height:1.6;">Specialist recruitment across Tech, Finance, Legal, Engineering, and Healthcare for businesses in the USA and Europe.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/flockinrecruitment/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         </div>
-    </section>
+      </div>
+      <div>
+        <h4>Specialisms</h4>
+        <ul>
+          <li><a href="index.html#specialisms">Technology</a></li>
+          <li><a href="index.html#specialisms">Finance</a></li>
+          <li><a href="index.html#specialisms">Legal</a></li>
+          <li><a href="index.html#specialisms">Engineering</a></li>
+          <li><a href="index.html#specialisms">Healthcare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cv-upload.html">Upload Resume</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a></li>
+          <li><a href="tel:+13239849907">+1 323 984 9907</a></li>
+          <li><a href="#">C-2 Main Bahar Shah Road, Lahore Cantt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>&copy; 2026 FlockIn Recruitment. All rights reserved.</span>
+      <span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        &nbsp;&middot;&nbsp;
+        <a href="terms-of-service.html">Terms of Service</a>
+      </span>
+    </div>
+  </div>
+</footer>
 
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container">
-            <h2 class="section-title">Find Us</h2>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.2!2d74.3587!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zTGFob3JlIENhbnR0!5e0!3m2!1sen!2spk!4v1234567890"
-                    width="100%"
-                    height="450"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>FlockIn Recruitment</h3>
-                    <p class="footer-tagline">Moving Forward Together</p>
-                    <p>Professional recruitment solutions across Pakistan and beyond</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/flockinrecruitment/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> +92 3300767851</p>
-                    <p><i class="fas fa-envelope"></i> contact@flockinrecruitment.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> C-2 Main Bahar Shah Road, Lahore Cantt</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Employee Portal</h3>
-                    <ul>
-                        <li><a href="employee-forms.html">Employee Forms</a></li>
-                        <li><a href="cv-upload.html">Upload Resume</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; 2026 FlockIn Recruitment. All rights reserved.</p>
-                    <p><a href="privacy-policy.html" class="footer-link">Privacy Policy</a> | <a href="terms-of-service.html" class="footer-link">Terms of Service</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

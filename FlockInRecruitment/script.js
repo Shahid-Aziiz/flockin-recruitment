@@ -1,104 +1,148 @@
 // ============================================================
-// Navigation
+// MOBILE NAV
 // ============================================================
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const burger    = document.querySelector('.burger');
+const mobileNav = document.getElementById('mobileNav');
 
-function closeMenu() {
-    if (hamburger) hamburger.classList.remove('active');
-    if (navMenu) navMenu.classList.remove('active');
+function closeMobileNav() {
+    if (!burger || !mobileNav) return;
+    burger.classList.remove('open');
+    mobileNav.classList.remove('open');
     document.body.style.overflow = '';
 }
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+if (burger && mobileNav) {
+    burger.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('open');
+        burger.classList.toggle('open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', closeMenu);
+    mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileNav);
     });
 
     document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            closeMenu();
+        if (!burger.contains(e.target) && !mobileNav.contains(e.target)) {
+            closeMobileNav();
         }
     });
 }
 
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 680) closeMobileNav();
+});
+
 // ============================================================
-// Smooth scrolling
+// SMOOTH SCROLLING
 // ============================================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href === '#') return;
         e.preventDefault();
-        closeMenu();
+        closeMobileNav();
         const target = document.querySelector(href);
         if (target) {
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            window.scrollTo({ top: target.offsetTop - navbarHeight - 20, behavior: 'smooth' });
+            const headerH = document.querySelector('header') ? document.querySelector('header').offsetHeight : 72;
+            window.scrollTo({ top: target.offsetTop - headerH - 16, behavior: 'smooth' });
         }
     });
 });
 
 // ============================================================
-// Active nav link highlighting
+// ROTATING WORD IN HERO
+// ============================================================
+(function() {
+    const el = document.getElementById('rotator');
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const words = ['finance', 'tech', 'legal', 'engineering', 'healthcare', 'RPO'];
+    let i = 0;
+    setInterval(() => {
+        i = (i + 1) % words.length;
+        el.style.opacity = '0';
+        setTimeout(() => { el.textContent = words[i]; el.style.opacity = '1'; }, 220);
+    }, 2400);
+    el.style.transition = 'opacity .22s ease';
+})();
+
+// ============================================================
+// COUNT-UP ANIMATION
+// ============================================================
+function animateCount(el) {
+    const target = +el.dataset.count;
+    const suffix = el.dataset.suffix || '';
+    if (isNaN(target)) return;
+    const dur = 1200;
+    let t0 = null;
+    function step(ts) {
+        if (!t0) t0 = ts;
+        const p = Math.min((ts - t0) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+// Fire hero counters immediately
+document.querySelectorAll('.hero [data-count]').forEach(animateCount);
+
+// ============================================================
+// REVEAL ON SCROLL + COUNT-UP TRIGGER
+// ============================================================
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            entry.target.querySelectorAll('[data-count]').forEach(animateCount);
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.18 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ============================================================
+// ACTIVE NAV HIGHLIGHTING (index.html)
 // ============================================================
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbarHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 80;
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const headerH  = document.querySelector('header') ? document.querySelector('header').offsetHeight : 72;
     let current = '';
-
-    sections.forEach(section => {
-        if (scrollY >= section.offsetTop - navbarHeight - 100) {
-            current = section.getAttribute('id');
-        }
+    sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - headerH - 80) current = s.id;
     });
-
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        const href = link.getAttribute('href');
+        if (href === `#${current}` || href === `index.html#${current}`) {
             link.classList.add('active');
         }
     });
 });
 
 // ============================================================
-// Form validation
+// FORM VALIDATION
 // ============================================================
 function validateForm(form) {
-    let isValid = true;
-
+    let valid = true;
     form.querySelectorAll('[required]').forEach(input => {
         const empty = input.type === 'checkbox' ? !input.checked : !input.value.trim();
         if (empty) {
-            input.classList.add('error');
-            isValid = false;
+            input.classList.add('error'); valid = false;
         } else {
             input.classList.remove('error');
         }
-
         if (input.type === 'email' && input.value.trim()) {
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
-                input.classList.add('error');
-                isValid = false;
-            }
-        }
-
-        if (input.type === 'tel' && input.value.trim()) {
-            if (!/^[\+]?[0-9\s\-\(\)]{10,}$/.test(input.value.trim())) {
-                input.classList.add('error');
-                isValid = false;
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+                input.classList.add('error'); valid = false;
             }
         }
     });
-
-    return isValid;
+    return valid;
 }
 
 function attachRealTimeValidation(form) {
@@ -116,72 +160,25 @@ function attachRealTimeValidation(form) {
     });
 }
 
-function showFormSuccess(form, title, body) {
-    const successDiv = document.createElement('div');
-    successDiv.className = 'form-success';
-    successDiv.innerHTML = `
-        <div class="form-success-icon"><i class="fas fa-check-circle"></i></div>
-        <h3>${title}</h3>
-        <p>${body}</p>
-    `;
-    form.replaceWith(successDiv);
-}
-
 // ============================================================
-// Scroll animations
+// BACK TO TOP
 // ============================================================
-const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            scrollObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-// ============================================================
-// Back to top button
-// ============================================================
-const backToTopButton = document.createElement('button');
-backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-backToTopButton.className = 'back-to-top';
-backToTopButton.setAttribute('aria-label', 'Back to top');
-backToTopButton.style.cssText = `
-    position: fixed; bottom: 20px; right: 20px;
-    width: 50px; height: 50px;
-    background-color: #C2D400; color: #0F1D2E;
-    border: none; border-radius: 50%; cursor: pointer;
-    display: none; align-items: center; justify-content: center;
-    z-index: 1000; transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 18px;
-`;
-document.body.appendChild(backToTopButton);
-
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
+const btt = document.createElement('button');
+btt.innerHTML = '<i class="fas fa-arrow-up"></i>';
+btt.className = 'back-to-top';
+btt.setAttribute('aria-label', 'Back to top');
+document.body.appendChild(btt);
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 window.addEventListener('scroll', () => {
-    backToTopButton.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+    btt.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
 });
 
-if (window.matchMedia('(hover: hover)').matches) {
-    backToTopButton.addEventListener('mouseenter', () => {
-        backToTopButton.style.transform = 'translateY(-3px)';
-        backToTopButton.style.boxShadow = '0 6px 20px rgba(0,0,0,0.25)';
-    });
-    backToTopButton.addEventListener('mouseleave', () => {
-        backToTopButton.style.transform = '';
-        backToTopButton.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-    });
-}
-
 // ============================================================
-// DOMContentLoaded
+// DOM CONTENT LOADED
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Contact forms (index.html + contact.html) ---
+    // --- Contact forms ---
     document.querySelectorAll('.contact-form').forEach(form => {
         attachRealTimeValidation(form);
         form.addEventListener('submit', (e) => {
@@ -191,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- CV upload form(s) ---
+    // --- CV upload form ---
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxG9rX94Bex_cKolDKiFSnkKGOgfTBOCqxDIeetzWW0MC3buU6LFIkTSXPYCRHUVGXulw/exec';
 
     document.querySelectorAll('.cv-upload-form').forEach(cvForm => {
@@ -201,15 +198,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (fileInput) {
             fileInput.addEventListener('change', () => {
                 const wrapper = fileInput.closest('.file-upload-wrapper');
-                const info = wrapper.querySelector('.file-upload-info');
-                const file = fileInput.files[0];
-
+                const info    = wrapper.querySelector('.file-upload-info');
+                const file    = fileInput.files[0];
                 wrapper.classList.toggle('has-file', !!file);
 
                 let nameEl = wrapper.querySelector('.file-selected-name');
                 if (file) {
                     info.querySelector('p').textContent = 'File selected:';
-                    info.querySelector('i').className = 'fas fa-check-circle';
+                    info.querySelector('i').className   = 'fas fa-check-circle';
                     if (!nameEl) {
                         nameEl = document.createElement('p');
                         nameEl.className = 'file-selected-name';
@@ -218,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     nameEl.textContent = file.name;
                 } else {
                     info.querySelector('p').textContent = 'Click to upload or drag and drop';
-                    info.querySelector('i').className = 'fas fa-cloud-upload-alt';
+                    info.querySelector('i').className   = 'fas fa-cloud-upload-alt';
                     if (nameEl) nameEl.remove();
                 }
             });
@@ -229,16 +225,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!validateForm(cvForm)) return;
 
             const submitBtn = cvForm.querySelector('[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-            submitBtn.disabled = true;
+            const origText  = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting…';
+            submitBtn.disabled  = true;
 
             try {
                 const formData = new FormData(cvForm);
                 const data = {};
-                formData.forEach((value, key) => {
-                    if (key !== 'cvFile') data[key] = value;
-                });
+                formData.forEach((v, k) => { if (k !== 'cvFile') data[k] = v; });
 
                 const file = fileInput ? fileInput.files[0] : null;
                 if (file) {
@@ -248,76 +242,45 @@ document.addEventListener('DOMContentLoaded', () => {
                         reader.onerror = reject;
                         reader.readAsDataURL(file);
                     });
-                    data.cvFile = base64;
+                    data.cvFile     = base64;
                     data.cvFileName = file.name;
                     data.cvFileType = file.type;
                 }
 
-                const res = await fetch(APPS_SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(data)
-                });
-
+                const res    = await fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify(data) });
                 const result = await res.json();
                 if (result.success) {
                     window.location.href = 'https://www.flockinrecruitment.com/thankyou.html';
                 } else {
                     throw new Error(result.error || 'Submission failed');
                 }
-            } catch (err) {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                alert('Something went wrong. Please try again or email us directly at contact@flockinrecruitment.com');
+            } catch {
+                submitBtn.innerHTML = origText;
+                submitBtn.disabled  = false;
+                alert('Something went wrong. Please try again or email us at contact@flockinrecruitment.com');
             }
         });
     });
 
-
-    // --- Scroll animations ---
-    document.querySelectorAll('.service-card, .location-card, .team-card, .about-card, .contact-card').forEach(el => {
-        el.classList.add('js-animate');
-        scrollObserver.observe(el);
-    });
-
-    // --- Touch feedback ---
-    document.querySelectorAll('.btn, .nav-link').forEach(button => {
-        button.addEventListener('touchstart', () => {
-            button.style.transform = 'scale(0.97)';
-        }, { passive: true });
-        button.addEventListener('touchend', () => {
-            button.style.transform = '';
-        });
-    });
-
-    // --- iOS zoom prevention ---
+    // --- iOS font zoom prevention ---
     document.querySelectorAll('input, textarea, select').forEach(input => {
         input.addEventListener('focus', () => {
-            if (window.innerWidth <= 768) input.style.fontSize = '16px';
+            if (window.innerWidth <= 680) input.style.fontSize = '16px';
         });
     });
-});
 
-// ============================================================
-// Resize handler
-// ============================================================
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) closeMenu();
-});
-
-// ============================================================
-// CV Form success message
-// ============================================================
-if (window.location.search.includes('submitted=true')) {
-    const wrapper = document.querySelector('.cv-form-wrapper');
-    if (wrapper) {
-        wrapper.innerHTML = `
-            <div style="text-align:center; padding: 60px 20px;">
-                <div style="font-size: 64px; margin-bottom: 20px;">✅</div>
-                <h2 style="color: #1a3c6e; margin-bottom: 16px;">CV Submitted Successfully!</h2>
-                <p style="color: #555; font-size: 18px; margin-bottom: 8px;">Thank you for applying to FlockIn Recruitment.</p>
-                <p style="color: #555; font-size: 16px; margin-bottom: 32px;">We'll review your CV and get back to you within 48 hours if there's a match.</p>
-                <a href="index.html" style="background: #1a3c6e; color: white; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-size: 16px;">Back to Home</a>
-            </div>
-        `;
+    // --- CV submission success (query param fallback) ---
+    if (window.location.search.includes('submitted=true')) {
+        const wrapper = document.querySelector('.cv-form-panel');
+        if (wrapper) {
+            wrapper.innerHTML = `
+                <div class="form-success">
+                    <div class="form-success-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>Application Submitted!</h3>
+                    <p>Thank you for reaching out to FlockIn Recruitment.<br>We'll review your resume and be in touch within 48 hours if there's a match.</p>
+                    <a href="index.html" class="btn btn-gold" style="margin-top:20px;">Back to Home</a>
+                </div>
+            `;
+        }
     }
-}
+});
