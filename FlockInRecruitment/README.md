@@ -1,6 +1,6 @@
-# IRE Recruitment Services Website
+# RecruitmentWebsite
 
-A modern, responsive website for IRE Recruitment Services with a green, white, and black theme.
+A modern, responsive website for Recruitment  with a green, white, and black theme.
 
 ## Features
 
