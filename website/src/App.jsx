@@ -337,7 +337,7 @@ function MobileNavigation({ open, onClose, drawerRef, closeButtonRef }) {
             onClick={onClose}
           >
             <img
-              src={asset("team-trident-logo.png")}
+              src={asset("flockin-logo.png")}
               alt="FlockIn Recruitment"
             />
           </a>
@@ -572,7 +572,7 @@ export function App() {
             aria-label="FlockIn Recruitment home"
           >
             <img
-              src={asset("team-trident-logo.png")}
+              src={asset("flockin-logo.png")}
               alt="FlockIn Recruitment"
             />
           </a>
@@ -914,7 +914,7 @@ export function App() {
             href={BASE_URL}
             aria-label="FlockIn Recruitment home"
           >
-            <img src={asset("team-trident-logo.png")} alt="" />
+            <img src={asset("flockin-logo.png")} alt="" />
             <span>FlockIn</span>
           </a>
 
