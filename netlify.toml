@@ -1,0 +1,16 @@
+[build]
+  base    = "website"
+  command = "npm install && npm run build"
+  publish = "website/dist"
+
+[[redirects]]
+  from = "http://flockinrecruitment.com/*"
+  to   = "https://www.flockinrecruitment.com/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from = "http://www.flockinrecruitment.com/*"
+  to   = "https://www.flockinrecruitment.com/:splat"
+  status = 301
+  force  = true
