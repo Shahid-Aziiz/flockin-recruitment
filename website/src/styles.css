@@ -1831,3 +1831,600 @@ ul {
     transform: none;
   }
 }
+
+/* ============================================================
+   PAGE HERO
+   ============================================================ */
+
+.page-hero {
+  background: var(--deep-navy);
+  padding: clamp(48px, 7vw, 96px) 0 clamp(40px, 6vw, 80px);
+}
+
+.page-hero .eyebrow--rule {
+  color: var(--rule);
+}
+
+.page-hero .eyebrow--rule::before {
+  background: var(--rule);
+}
+
+.page-hero h1 {
+  font-family: "League Gothic", sans-serif;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+  margin-top: 12px;
+}
+
+.page-hero__sub {
+  color: #a8bfcd;
+  font-size: clamp(16px, 2vw, 19px);
+  margin-top: 16px;
+  max-width: 600px;
+}
+
+.page-hero--job h1 {
+  font-size: clamp(32px, 5vw, 64px);
+}
+
+/* ============================================================
+   CONTACT / CV-UPLOAD
+   ============================================================ */
+
+.contact-section {
+  padding: clamp(48px, 6vw, 80px) 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-form-col h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-info-card {
+  padding: 24px;
+  border: 1px solid #d7dfe5;
+  border-top: 4px solid var(--navy);
+}
+
+.contact-info-card h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.contact-info-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--body);
+  margin-bottom: 16px;
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-details-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  color: var(--body);
+}
+
+.contact-details-list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--navy);
+}
+
+.contact-details-list li div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-details-list li a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.contact-details-list li a:hover {
+  color: var(--red);
+}
+
+/* ============================================================
+   PAGE FORMS
+   ============================================================ */
+
+.page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-fieldset legend {
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--mist);
+  width: 100%;
+  float: left;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-field label span[aria-hidden] {
+  color: var(--red);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 11px 14px;
+  border: 1px solid #c8d4db;
+  border-radius: 0;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--white);
+  transition: border-color 150ms ease;
+  appearance: none;
+  width: 100%;
+}
+
+.form-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23456d8e' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(5, 55, 91, 0.12);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-field--checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.checkbox-label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--body);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+
+.checkbox-label a {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+.form-submit {
+  padding: 14px 28px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: "Oswald", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+  align-self: flex-start;
+}
+
+.form-submit:hover {
+  background: var(--red);
+}
+
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  padding: 12px 16px;
+  background: #fef2f2;
+  border-left: 4px solid var(--red);
+  color: var(--red-dark);
+  font-size: 14px;
+}
+
+/* File upload */
+
+.file-upload-wrapper {
+  position: relative;
+}
+
+.file-upload-wrapper input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+}
+
+.file-upload-ui {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 2px dashed #c8d4db;
+  background: var(--mist);
+  color: var(--steel);
+  font-size: 14px;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.file-upload-wrapper:hover .file-upload-ui,
+.file-upload-wrapper.has-file .file-upload-ui {
+  border-color: var(--navy);
+  background: #edf2f6;
+  color: var(--ink);
+}
+
+/* ============================================================
+   TEAM PAGE
+   ============================================================ */
+
+.team-section {
+  padding: clamp(48px, 6vw, 80px) 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.team-card {
+  border: 1px solid #d7dfe5;
+  border-top: 4px solid var(--navy);
+  overflow: hidden;
+}
+
+.team-card__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  background: var(--deep-navy);
+  font-family: "League Gothic", sans-serif;
+  font-size: 72px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.team-card__body {
+  padding: 20px 22px 24px;
+}
+
+.team-card__body h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.team-card__role {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.team-card__bio {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+/* ============================================================
+   PROSE (Privacy / Terms)
+   ============================================================ */
+
+.prose-section {
+  padding: clamp(48px, 6vw, 80px) 0;
+}
+
+.prose-shell {
+  max-width: 760px;
+}
+
+.prose-shell h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 40px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--mist);
+}
+
+.prose-shell h2:first-child {
+  margin-top: 0;
+}
+
+.prose-shell p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--body);
+  margin-bottom: 14px;
+}
+
+.prose-shell ul {
+  list-style: disc;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.prose-shell li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+.prose-shell a {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   JOB DETAIL PAGE
+   ============================================================ */
+
+.job-detail-section {
+  padding: clamp(48px, 6vw, 80px) 0;
+}
+
+.job-detail-grid {
+  max-width: 840px;
+}
+
+.job-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  padding: 16px 20px;
+  background: var(--mist);
+  margin-bottom: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--steel);
+}
+
+.job-meta-bar span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.job-body h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.job-body h2:first-child {
+  margin-top: 0;
+}
+
+.job-body p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--body);
+  margin-bottom: 14px;
+}
+
+.job-body ul {
+  list-style: disc;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.job-body li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+.job-apply-block {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 2px solid var(--mist);
+}
+
+.job-apply-block h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+/* ============================================================
+   THANK YOU PAGE
+   ============================================================ */
+
+.thankyou-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: clamp(48px, 6vw, 80px) 20px;
+  background: var(--mist);
+}
+
+.thankyou-card {
+  background: var(--white);
+  padding: clamp(36px, 5vw, 64px);
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 30, 53, 0.1);
+}
+
+.thankyou-icon {
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.thankyou-card h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.thankyou-card p {
+  font-size: 16px;
+  color: var(--body);
+  line-height: 1.6;
+}
+
+.thankyou-sub {
+  font-size: 14px !important;
+  color: var(--steel) !important;
+  margin-top: 8px;
+}
+
+.thankyou-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+/* ============================================================
+   INFO LIST (CV upload sidebar)
+   ============================================================ */
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.info-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--body);
+}
+
+/* ============================================================
+   RESPONSIVE — PAGES
+   ============================================================ */
+
+@media (max-width: 960px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .thankyou-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
