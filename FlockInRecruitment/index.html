@@ -30,10 +30,11 @@
       <div class="brand-text">FlockIn<span>Moving Forward Together</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
       <li><a href="#specialisms">Specialisms</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#jobs">Job search</a></li>
+      <li><a href="#work">For employers</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
       <a href="cv-upload.html" class="btn btn-ghost">Upload Resume</a>
@@ -46,10 +47,11 @@
   </div>
   <div class="mobile-nav" id="mobileNav">
     <ul>
-      <li><a href="#about">About</a></li>
       <li><a href="#specialisms">Specialisms</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#jobs">Job search</a></li>
+      <li><a href="#work">For employers</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="mobile-cta">
       <a href="cv-upload.html" class="btn btn-ghost">Upload Resume</a>
@@ -65,53 +67,35 @@
     <h1>We're here to make <span class="rotator" id="rotator">finance</span> hiring better.</h1>
     <p class="lead">FlockIn Recruitment partners with businesses across the USA and Europe to connect them with the right talent in Tech, Finance, Legal, Engineering, and Healthcare. We handle the full process so you spend your time meeting people worth hiring.</p>
 
-    <div class="trust reveal">
+    <div class="search" role="search">
+      <div class="field">
+        <label for="kw">Keyword</label>
+        <input id="kw" type="text" placeholder="Job title or skill">
+      </div>
+      <div class="field">
+        <label for="sp">Specialism</label>
+        <select id="sp">
+          <option>All specialisms</option>
+          <option>Technology</option>
+          <option>Finance</option>
+          <option>Legal</option>
+          <option>Engineering</option>
+          <option>Healthcare</option>
+          <option>Manufacturing</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="loc">Location</label>
+        <input id="loc" type="text" placeholder="USA or Europe" value="USA &amp; Europe">
+      </div>
+      <button class="btn btn-gold" onclick="document.getElementById('jobs').scrollIntoView({behavior:'smooth'})">Search jobs</button>
+    </div>
+
+    <div class="trust">
       <div class="stat"><b data-count="20" data-suffix="+">0+</b><span>PLACEMENTS MADE</span></div>
       <div class="stat"><b data-count="10" data-suffix="+">0+</b><span>COMPANIES SERVED</span></div>
       <div class="stat"><b>48hr</b><span>AVG RESPONSE TIME</span></div>
       <div class="stat"><b data-count="2">0</b><span>CONTINENTS COVERED</span></div>
-    </div>
-
-    <div class="hero-actions">
-      <a href="contact.html" class="btn btn-gold">Hire Talent</a>
-      <a href="cv-upload.html" class="btn btn-ghost">Upload Your Resume</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">About us</p>
-      <h2>A recruitment partner that actually gets it right.</h2>
-      <p>We combine genuine industry knowledge with a hands-on approach. No bulk sourcing, no CV farms. Just a focused team that takes every brief seriously and delivers candidates worth interviewing.</p>
-    </div>
-    <div class="split reveal">
-      <div class="panel">
-        <p class="eyebrow">Our mission</p>
-        <h3>Connect the right people with the right opportunities.</h3>
-        <p>We work with clients in the USA and Europe, taking the time to understand the role, the team, and what a genuine fit actually looks like in practice.</p>
-        <ul>
-          <li>Dedicated recruiter per search, not a call centre</li>
-          <li>Every candidate personally spoken to before submission</li>
-          <li>Quick turnaround. Most searches active within 24 hours.</li>
-          <li>One point of contact from brief to placement</li>
-        </ul>
-        <a href="#contact" class="btn btn-dark">Get in touch</a>
-      </div>
-      <div class="panel dark">
-        <p class="eyebrow">How we work</p>
-        <h3>Fewer candidates. Better ones.</h3>
-        <p>We would rather send two profiles we genuinely believe in than ten we are not sure about. A shortlist should be a recommendation, not a lucky dip.</p>
-        <ul>
-          <li>No padding the shortlist. Only genuine fits.</li>
-          <li>Honest feedback at every stage of the process</li>
-          <li>Post-placement check-ins. We care about retention.</li>
-          <li>Transparent on fees and timelines from day one</li>
-        </ul>
-        <a href="contact.html" class="btn btn-gold">Start a search</a>
-      </div>
     </div>
   </div>
 </section>
@@ -171,38 +155,64 @@
   </div>
 </section>
 
-<!-- ============ SERVICES ============ -->
-<section class="services-section" id="services">
+<!-- ============ FEATURED ROLES ============ -->
+<section class="jobs" id="jobs">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Our services</p>
-      <h2>Everything from sourcing to placement.</h2>
-      <p>We handle the full recruitment process so you spend your time on conversations that matter, not inbox management.</p>
+      <p class="eyebrow">Live roles</p>
+      <h2>Featured opportunities</h2>
+      <p>A snapshot of what we're hiring for right now. New roles added regularly.</p>
     </div>
-    <div class="svc-grid">
-      <div class="svc-card reveal">
-        <div class="svc-icon"><i class="fas fa-sync-alt"></i></div>
-        <h3>360° Recruitment</h3>
-        <p>We manage the entire process end to end: sourcing, screening, shortlisting, interview coordination, and offer management. You brief us once and we come back with candidates worth your time.</p>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-icon"><i class="fas fa-search"></i></div>
-        <h3>Smarter Talent Search</h3>
-        <p>We use modern tools to surface and evaluate candidates faster without cutting corners on quality. You get the right person sooner, not just the first available one.</p>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-icon"><i class="fas fa-globe"></i></div>
-        <h3>RPO Support</h3>
-        <p>For businesses in the USA and Europe that need scalable, reliable recruitment support without the overhead. We act as a seamless extension of your existing team.</p>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-icon"><i class="fas fa-cloud"></i></div>
-        <h3>Salesforce Administration</h3>
-        <p>We help recruitment teams get more out of Salesforce, keeping workflows clean, data accurate, and the system working the way it should so your team can focus on hiring.</p>
-      </div>
+    <div class="job-grid">
+      <a href="job-packaging-sales.html" class="job reveal">
+        <span class="meta">Manufacturing &middot; Remote (TX)</span>
+        <h3>Packaging Sales Representative</h3>
+        <p>Join a growing corrugated packaging manufacturer serving industrial, logistics, and food &amp; beverage sectors across Texas. Drive new business and manage accounts in a defined territory with uncapped commission potential.</p>
+        <div class="tags"><span class="tag">Sales</span><span class="tag">Corrugated</span><span class="tag">Remote</span><span class="tag">Permanent</span></div>
+        <div class="salary">Base + uncapped commission &mdash; DOE</div>
+        <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:.06em;">Open role &rarr;</div>
+      </a>
+      <a href="job-aerospace-manager.html" class="job reveal">
+        <span class="meta">Engineering &middot; Orange County, CA</span>
+        <h3>Business Unit Manager &mdash; Aerospace</h3>
+        <p>Lead all aspects of an aerospace manufacturing business unit: production scheduling, quality, safety, and P&amp;L ownership. On-site role with cross-functional leadership across engineering, supply chain, and finance.</p>
+        <div class="tags"><span class="tag">Aerospace</span><span class="tag">Manufacturing</span><span class="tag">Leadership</span><span class="tag">Permanent</span></div>
+        <div class="salary">$175,000 – $200,000 / year</div>
+        <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:.06em;">Open role &rarr;</div>
+      </a>
     </div>
-    <div style="margin-top: 32px;">
-      <a href="contact.html" class="btn btn-gold">Talk to us about your needs</a>
+    <div class="foot"><a href="contact.html" class="btn btn-gold">Get in touch about roles</a></div>
+  </div>
+</section>
+
+<!-- ============ FOR CANDIDATES / EMPLOYERS ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel reveal">
+        <p class="eyebrow">For candidates</p>
+        <h3>Your next move, handled with care.</h3>
+        <p>We won't put you forward for roles that aren't right. We listen to what you actually want, then introduce you only where you'll genuinely thrive.</p>
+        <ul>
+          <li>A dedicated consultant who knows your discipline</li>
+          <li>Every candidate personally spoken to before submission</li>
+          <li>Honest feedback on your CV and at every interview stage</li>
+          <li>One point of contact from first call to placement</li>
+        </ul>
+        <a href="cv-upload.html" class="btn btn-dark">Upload Your CV</a>
+      </div>
+      <div class="panel dark reveal">
+        <p class="eyebrow">For employers</p>
+        <h3>Shortlists you can act on.</h3>
+        <p>We would rather send two profiles we genuinely believe in than ten we're not sure about. A shortlist should be a recommendation, not a lucky dip.</p>
+        <ul>
+          <li>No padding the shortlist. Only genuine fits.</li>
+          <li>Transparent on fees and timelines from day one</li>
+          <li>Contingent, retained, and RPO options available</li>
+          <li>Post-placement check-ins. We care about retention.</li>
+        </ul>
+        <a href="contact.html" class="btn btn-gold">Start a search</a>
+      </div>
     </div>
   </div>
 </section>
@@ -263,7 +273,7 @@
 <!-- ============ CTA ============ -->
 <section class="cta-section" id="contact">
   <div class="wrap">
-    <p class="eyebrow" style="display:block;margin-bottom:12px;">Let's talk</p>
+    <p class="eyebrow" style="display:block;text-align:center;margin-bottom:12px;">Let's talk</p>
     <h2>Hiring, or hunting? Start a conversation.</h2>
     <p>Tell us what you're looking for and we'll point you to the right specialist, usually within a day.</p>
     <div class="row">
@@ -302,8 +312,8 @@
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#work">About Us</a></li>
+          <li><a href="#values">Values</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="cv-upload.html">Upload Resume</a></li>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
