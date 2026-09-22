@@ -89,7 +89,7 @@ export function Home() {
             </div>
           </div>
           <div className="hero-media">
-            <img src={asset("jrod-worksite.webp")} alt="A recruitment professional at work" fetchPriority="high" />
+            <img src={asset("pexels-vlada-karpovich-7433847.avif")} alt="A recruitment professional at work" fetchPriority="high" />
             <p className="hero-media__location">
               <span>USA &amp; Europe</span>
               <span>Worldwide reach</span>
