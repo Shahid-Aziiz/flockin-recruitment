@@ -65,6 +65,15 @@ const featuredJobs = [
     salary: "$175,000 – $200,000 / year",
     href: "/job-aerospace-manager",
   },
+  {
+    title: "Director of Data Strategy & AI Implementation",
+    category: "Technology",
+    location: "Southfield, MI",
+    description: "Lead Guardian Alarm's enterprise data function — owning the full data roadmap across architecture, engineering, governance, BI, and AI/ML. Build Microsoft Fabric OneLake as the centralised source of truth and establish a Data & AI Centre of Excellence.",
+    tags: ["Data Strategy", "AI", "Microsoft Fabric", "Leadership", "Permanent"],
+    salary: "$180,000 base + bonus",
+    href: "/job-director-data-strategy",
+  },
 ];
 
 export function Home() {

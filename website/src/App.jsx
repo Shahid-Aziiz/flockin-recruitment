@@ -8,6 +8,7 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { TermsOfService } from "./pages/TermsOfService";
 import { JobPackagingSales } from "./pages/JobPackagingSales";
 import { JobAerospaceManager } from "./pages/JobAerospaceManager";
+import { JobDirectorDataStrategy } from "./pages/JobDirectorDataStrategy";
 import { ThankYou } from "./pages/ThankYou";
 
 import "@fontsource/oswald/latin-400.css";
@@ -33,6 +34,7 @@ export function App() {
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/job-packaging-sales" element={<JobPackagingSales />} />
           <Route path="/job-aerospace-manager" element={<JobAerospaceManager />} />
+          <Route path="/job-director-data-strategy" element={<JobDirectorDataStrategy />} />
           <Route path="/thankyou" element={<ThankYou />} />
         </Route>
       </Routes>
