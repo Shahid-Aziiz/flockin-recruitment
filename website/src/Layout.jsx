@@ -4,7 +4,6 @@ import {
   ArrowRight,
   CaretDown,
   EnvelopeSimple,
-  FacebookLogo,
   LinkedinLogo,
   List,
   MagnifyingGlass,
@@ -180,9 +179,6 @@ function MobileNavigation({ open, onClose, drawerRef, closeButtonRef }) {
           <a href={URLS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="FlockIn Recruitment on LinkedIn">
             <LinkedinLogo size={24} weight="fill" aria-hidden="true" />
           </a>
-          <a href={URLS.facebook} target="_blank" rel="noopener noreferrer" aria-label="FlockIn Recruitment on Facebook">
-            <FacebookLogo size={24} weight="fill" aria-hidden="true" />
-          </a>
         </div>
       </aside>
     </>
@@ -330,9 +326,6 @@ export function Layout() {
             <a href={URLS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="FlockIn Recruitment on LinkedIn">
               <LinkedinLogo size={20} weight="fill" aria-hidden="true" />
             </a>
-            <a href={URLS.facebook} target="_blank" rel="noopener noreferrer" aria-label="FlockIn Recruitment on Facebook">
-              <FacebookLogo size={20} weight="fill" aria-hidden="true" />
-            </a>
           </div>
 
           <button
@@ -389,9 +382,6 @@ export function Layout() {
             <a href={URLS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="FlockIn Recruitment on LinkedIn">
               <LinkedinLogo size={21} weight="fill" aria-hidden="true" />
             </a>
-            <a href={URLS.facebook} target="_blank" rel="noopener noreferrer" aria-label="FlockIn Recruitment on Facebook">
-              <FacebookLogo size={21} weight="fill" aria-hidden="true" />
-            </a>
           </div>
         </div>
 
@@ -417,7 +407,7 @@ export function Layout() {
             <strong>Get in touch</strong>
             <a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a>
             <a href="tel:+13239849907"><Phone size={16} aria-hidden="true" /> +1 323 984 9907</a>
-            <span>Building 117-A, Al-Faisal Town, Lahore Cantt</span>
+            <span>10990 Wilshire Blvd, Ste 300, Los Angeles, CA 90024, US</span>
           </div>
         </div>
 

@@ -84,8 +84,8 @@ export function Contact() {
                 <li>
                   <MapPin size={18} aria-hidden="true" />
                   <div>
-                    <span>Building 117-A, Al-Faisal Town</span>
-                    <span>Lahore Cantt, Lahore, Pakistan</span>
+                    <span>10990 Wilshire Blvd, Ste 300</span>
+                    <span>Los Angeles, California 90024, US</span>
                   </div>
                 </li>
               </ul>
