@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import {
   ArrowRight,
   CaretDown,
@@ -19,7 +19,8 @@ function SearchForm({ className = "", inputRef, compact = false }) {
       className={`search-form ${compact ? "search-form--compact" : ""} ${className}`}
       onSubmit={(e) => {
         e.preventDefault();
-        navigate("/#jobs");
+        const term = e.target.elements.s.value.trim();
+        if (term) navigate(`/?q=${encodeURIComponent(term)}`);
       }}
       role="search"
     >
@@ -195,6 +196,43 @@ export function ActionLink({ href, tone = "navy", icon: Icon, children, onClick 
   );
 }
 
+function applySearchHighlight(term) {
+  const main = document.getElementById("main-content");
+  if (!main) return;
+  main.querySelectorAll("mark.search-highlight").forEach((m) => {
+    m.replaceWith(document.createTextNode(m.textContent));
+  });
+  if (!term) return;
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const regex = new RegExp(`(${escaped})`, "gi");
+  const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  let node;
+  while ((node = walker.nextNode())) {
+    if (regex.test(node.textContent)) { regex.lastIndex = 0; nodes.push(node); }
+  }
+  nodes.forEach((textNode) => {
+    const parent = textNode.parentNode;
+    if (!parent || ["MARK", "SCRIPT", "STYLE", "INPUT", "TEXTAREA"].includes(parent.tagName)) return;
+    const parts = textNode.textContent.split(regex);
+    if (parts.length <= 1) return;
+    const frag = document.createDocumentFragment();
+    parts.forEach((part, i) => {
+      if (i % 2 === 1) {
+        const mark = document.createElement("mark");
+        mark.className = "search-highlight";
+        mark.textContent = part;
+        frag.appendChild(mark);
+      } else if (part) {
+        frag.appendChild(document.createTextNode(part));
+      }
+    });
+    parent.replaceChild(frag, textNode);
+  });
+  const first = main.querySelector("mark.search-highlight");
+  if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
 export function Layout() {
   const [openMenu, setOpenMenu] = useState(null);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -292,6 +330,13 @@ export function Layout() {
     mobileMedia.addEventListener("change", onBreakpointChange);
     return () => mobileMedia.removeEventListener("change", onBreakpointChange);
   }, [mobileOpen, openMenu, searchOpen]);
+
+  const location = useLocation();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const term = params.get("q")?.trim() || "";
+    applySearchHighlight(term);
+  }, [location]);
 
   const closeMobile = () => {
     setMobileOpen(false);
@@ -398,7 +443,6 @@ export function Layout() {
           <div>
             <strong>Company</strong>
             <a href={URLS.values}>Values</a>
-            <Link to={URLS.team}>Our Team</Link>
             <Link to={URLS.contact}>Contact</Link>
             <Link to={URLS.candidates}>Upload Resume</Link>
             <Link to={URLS.privacy}>Privacy Policy</Link>
