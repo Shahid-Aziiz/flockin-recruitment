@@ -82,6 +82,7 @@ export function Home() {
       <section className="hero" aria-labelledby="hero-heading">
         <div className="hero-grid">
           <div className="hero-copy">
+            <img src={asset("flockin-logo-full.png")} alt="FlockIn Recruitment" className="hero-logo" />
             <p className="eyebrow eyebrow--rule">Specialist Recruitment · USA &amp; Europe</p>
             <h1 id="hero-heading">
               <span>We&apos;re here to make</span>
