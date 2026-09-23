@@ -415,6 +415,7 @@ export function Layout() {
           </Link>
 
           <nav className="footer-nav" aria-label="Footer navigation">
+            <Link to={URLS.services}>Services</Link>
             <a href={URLS.specialisms}>Specialisms</a>
             <a href={URLS.jobs}>Job Search</a>
             <a href={URLS.employers}>For Employers</a>

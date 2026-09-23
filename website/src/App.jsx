@@ -9,6 +9,7 @@ import { TermsOfService } from "./pages/TermsOfService";
 import { JobPackagingSales } from "./pages/JobPackagingSales";
 import { JobAerospaceManager } from "./pages/JobAerospaceManager";
 import { JobDirectorDataStrategy } from "./pages/JobDirectorDataStrategy";
+import { Services } from "./pages/Services";
 import { ThankYou } from "./pages/ThankYou";
 
 import "@fontsource/oswald/latin-400.css";
@@ -27,6 +28,7 @@ export function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cv-upload" element={<CvUpload />} />
           <Route path="/team" element={<Team />} />

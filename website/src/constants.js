@@ -3,6 +3,7 @@ export const asset = (name) => `${BASE_URL}assets/${name}`;
 
 export const URLS = {
   home: "/",
+  services: "/services",
   specialisms: "/#specialisms",
   technology: "/#specialisms",
   finance: "/#specialisms",
@@ -23,6 +24,7 @@ export const URLS = {
 };
 
 export const navItems = [
+  { id: "services", label: "Services", href: "/services" },
   {
     id: "specialisms",
     label: "Specialisms",
