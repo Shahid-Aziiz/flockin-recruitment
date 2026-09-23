@@ -386,12 +386,6 @@ ul {
   padding: 68px clamp(46px, 5vw, 74px) 64px;
 }
 
-.hero-logo {
-  width: 160px;
-  height: auto;
-  margin-bottom: 28px;
-}
-
 .eyebrow {
   display: flex;
   align-items: center;

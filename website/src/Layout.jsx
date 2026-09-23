@@ -121,7 +121,7 @@ function MobileNavigation({ open, onClose, drawerRef, closeButtonRef }) {
       >
         <div className="mobile-drawer__header">
           <Link to={URLS.home} aria-label="FlockIn Recruitment home" onClick={onClose}>
-            <img src={asset("flockin-logo.png")} alt="FlockIn Recruitment" />
+            <img src={asset("flockin-logo-full.png")} alt="FlockIn Recruitment" />
           </Link>
           <button
             ref={closeButtonRef}
@@ -350,7 +350,7 @@ export function Layout() {
       <header ref={headerRef} className="site-header">
         <div className="header-inner">
           <Link className="brand" to={URLS.home} aria-label="FlockIn Recruitment home">
-            <img src={asset("flockin-logo.png")} alt="FlockIn Recruitment" />
+            <img src={asset("flockin-logo-full.png")} alt="FlockIn Recruitment" />
           </Link>
 
           <DesktopNavigation openMenu={openMenu} setOpenMenu={setOpenMenu} triggerRefs={triggerRefs} />
@@ -410,7 +410,7 @@ export function Layout() {
       <footer className="site-footer">
         <div className="footer-main">
           <Link className="footer-brand" to={URLS.home} aria-label="FlockIn Recruitment home">
-            <img src={asset("flockin-logo.png")} alt="" />
+            <img src={asset("flockin-logo-full.png")} alt="" />
             <span>FlockIn</span>
           </Link>
 
