@@ -17,20 +17,20 @@ import { URLS, asset } from "../constants";
 import { ActionLink } from "../Layout";
 
 const imageRail = [
-  { src: "port-fourchon-dusk.webp", alt: "Offshore vessels at dusk", position: "50% 57%" },
-  { src: "solar-jobs.jpg", alt: "Energy professionals at a solar site", position: "50% 50%" },
-  { src: "david-dewar-ursa-tlp.webp", alt: "Professional at an illuminated platform", position: "61% 50%" },
-  { src: "aerospace-jobs.jpg", alt: "Aerospace technician working on an aircraft", position: "50% 50%" },
-  { src: "allan-cortez-cassio-peneluppi-offshore.webp", alt: "Two professionals at a worksite", position: "46% 48%" },
+  { src: "offshore-night.jpg", alt: "Illuminated offshore oil rig at night", position: "50% 57%" },
+  { src: "solar-workers.jpg", alt: "Solar technicians installing panels", position: "50% 50%" },
+  { src: "oil-rig-dawn.jpg", alt: "Oil rig platform at dawn", position: "50% 50%" },
+  { src: "aerospace-engineer.jpg", alt: "Engineer standing in an aircraft hangar", position: "50% 50%" },
+  { src: "construction-workers.jpg", alt: "Engineers at a construction worksite", position: "50% 48%" },
 ];
 
 const specialismCards = [
-  { title: "Technology", description: "Engineering, data, product, and cyber across the USA and Europe.", href: URLS.technology, image: "aerospace-jobs.jpg", imageAlt: "Technology professionals at work", position: "50% 50%", icon: Code, tone: "deep" },
-  { title: "Finance", description: "From financial analysts to CFOs across all verticals.", href: URLS.finance, image: "direct-placement.jpg", imageAlt: "Finance professionals in a meeting", position: "58% 50%", icon: CurrencyDollar, tone: "steel" },
-  { title: "Legal", description: "In-house counsel, compliance, and regulatory specialists.", href: URLS.legal, image: "early-morning-q5k.webp", imageAlt: "Legal professionals at work", position: "50% 50%", icon: Scales, tone: "deep" },
-  { title: "Engineering", description: "Technical, infrastructure, and operations talent.", href: URLS.engineering, image: "brandon-ward-worksite.webp", imageAlt: "Engineering professional at a worksite", position: "100% 50%", icon: Wrench, tone: "steel" },
-  { title: "Healthcare", description: "Clinical professionals and health-tech talent.", href: URLS.healthcare, image: "veteran-support.webp", imageAlt: "Healthcare professional", position: "0% 48%", icon: Heartbeat, tone: "deep" },
-  { title: "Manufacturing", description: "Production, operations, and supply chain talent across the USA and Europe.", href: URLS.manufacturing, image: "offshore-crew.webp", imageAlt: "Manufacturing crew members at work", position: "50% 40%", icon: Factory, tone: "steel" },
+  { title: "Technology", description: "Engineering, data, product, and cyber across the USA and Europe.", href: URLS.technology, image: "tech-office.jpg", imageAlt: "Technology professionals working in a modern office", position: "50% 50%", icon: Code, tone: "deep" },
+  { title: "Finance", description: "From financial analysts to CFOs across all verticals.", href: URLS.finance, image: "finance-meeting.jpg", imageAlt: "Finance professionals in a business meeting", position: "50% 50%", icon: CurrencyDollar, tone: "steel" },
+  { title: "Legal", description: "In-house counsel, compliance, and regulatory specialists.", href: URLS.legal, image: "legal-office.jpg", imageAlt: "Lawyers discussing documents in an office", position: "50% 50%", icon: Scales, tone: "deep" },
+  { title: "Engineering", description: "Technical, infrastructure, and operations talent.", href: URLS.engineering, image: "engineering-hardhat.jpg", imageAlt: "Engineer wearing a hard hat at an industrial site", position: "50% 50%", icon: Wrench, tone: "steel" },
+  { title: "Healthcare", description: "Clinical professionals and health-tech talent.", href: URLS.healthcare, image: "healthcare-team.jpg", imageAlt: "Doctors and nurses in a hospital", position: "50% 50%", icon: Heartbeat, tone: "deep" },
+  { title: "Manufacturing", description: "Production, operations, and supply chain talent across the USA and Europe.", href: URLS.manufacturing, image: "factory-worker.jpg", imageAlt: "Factory worker in a manufacturing facility", position: "50% 50%", icon: Factory, tone: "steel" },
 ];
 
 const stats = [
@@ -98,7 +98,7 @@ export function Home() {
             </div>
           </div>
           <div className="hero-media">
-            <img src={asset("pexels-vlada-karpovich-7433847.avif")} alt="A recruitment professional at work" fetchPriority="high" />
+            <img src={asset("hero-interview.jpg")} alt="Recruiter interviewing a candidate" fetchPriority="high" />
             <p className="hero-media__location">
               <span>USA &amp; Europe</span>
               <span>Worldwide reach</span>
@@ -126,7 +126,7 @@ export function Home() {
             <ActionLink href={URLS.values}>Our Values</ActionLink>
           </div>
           <figure className="trust-media">
-            <img src={asset("team-trident-staff.webp")} alt="FlockIn recruitment team at work" loading="lazy" />
+            <img src={asset("team-office.jpg")} alt="FlockIn recruitment team collaborating in a modern office" loading="lazy" />
             <figcaption>USA &amp; Europe · Moving Forward Together</figcaption>
           </figure>
         </div>
