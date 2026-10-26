@@ -64,6 +64,7 @@ const featuredJobs = [
     tags: ["Aerospace", "Manufacturing", "Leadership", "Permanent"],
     salary: "$175,000 – $200,000 / year",
     href: "/job-aerospace-manager",
+    closed: true,
   },
   {
     title: "Director of Data Strategy & AI Implementation",
@@ -73,6 +74,7 @@ const featuredJobs = [
     tags: ["Data Strategy", "AI", "Microsoft Fabric", "Leadership", "Permanent"],
     salary: "$180,000 base + bonus",
     href: "/job-director-data-strategy",
+    closed: true,
   },
   {
     title: "Labor & Employment Attorney",
@@ -200,7 +202,8 @@ export function Home() {
           <h2 id="jobs-heading">Featured opportunities.</h2>
           <div className="jobs-grid">
             {featuredJobs.map((job) => (
-              <div key={job.title} className="job-card">
+              <div key={job.title} className={`job-card${job.closed ? " job-card--closed" : ""}`}>
+                {job.closed && <span className="job-card__closed-badge">Position Closed</span>}
                 <div className="job-card__meta">
                   <span>{job.category}</span>
                   <span>{job.location}</span>
@@ -211,7 +214,7 @@ export function Home() {
                   {job.tags.map((tag) => <span key={tag} className="job-tag">{tag}</span>)}
                 </div>
                 <p className="job-card__salary">{job.salary}</p>
-                <ActionLink href={job.href}>View Role</ActionLink>
+                {!job.closed && <ActionLink href={job.href}>View Role</ActionLink>}
               </div>
             ))}
           </div>

@@ -1203,6 +1203,29 @@ ul {
   padding-block: 8px;
 }
 
+.job-card--closed {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.job-card--closed:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.job-card__closed-badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1180px) {
   .header-inner {
     grid-template-columns: 130px 1fr 118px;
