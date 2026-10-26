@@ -48,6 +48,33 @@ const values = [
 
 const featuredJobs = [
   {
+    title: "Packaging Sales Representative",
+    category: "Manufacturing",
+    location: "Remote (TX)",
+    description: "Join a growing corrugated packaging manufacturer serving industrial, logistics, and food & beverage sectors across Texas. Drive new business and manage accounts in a defined territory with uncapped commission potential.",
+    tags: ["Sales", "Corrugated", "Remote", "Permanent"],
+    salary: "Base + uncapped commission — DOE",
+    href: "/job-packaging-sales",
+  },
+  {
+    title: "Business Unit Manager — Aerospace",
+    category: "Engineering",
+    location: "Orange County, CA",
+    description: "Lead all aspects of an aerospace manufacturing business unit: production scheduling, quality, safety, and P&L ownership. On-site role with cross-functional leadership across engineering, supply chain, and finance.",
+    tags: ["Aerospace", "Manufacturing", "Leadership", "Permanent"],
+    salary: "$175,000 – $200,000 / year",
+    href: "/job-aerospace-manager",
+  },
+  {
+    title: "Director of Data Strategy & AI Implementation",
+    category: "Technology",
+    location: "Southfield, MI",
+    description: "Lead Guardian Alarm's enterprise data function — owning the full data roadmap across architecture, engineering, governance, BI, and AI/ML. Build Microsoft Fabric OneLake as the centralised source of truth and establish a Data & AI Centre of Excellence.",
+    tags: ["Data Strategy", "AI", "Microsoft Fabric", "Leadership", "Permanent"],
+    salary: "$180,000 base + bonus",
+    href: "/job-director-data-strategy",
+  },
+  {
     title: "Labor & Employment Attorney",
     category: "Legal",
     location: "Colorado (Remote)",
