@@ -6,9 +6,7 @@ import { CvUpload } from "./pages/CvUpload";
 import { Team } from "./pages/Team";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { TermsOfService } from "./pages/TermsOfService";
-import { JobPackagingSales } from "./pages/JobPackagingSales";
-import { JobAerospaceManager } from "./pages/JobAerospaceManager";
-import { JobDirectorDataStrategy } from "./pages/JobDirectorDataStrategy";
+import { JobLaborEmploymentAttorney } from "./pages/JobLaborEmploymentAttorney";
 import { Services } from "./pages/Services";
 import { ThankYou } from "./pages/ThankYou";
 
@@ -34,9 +32,7 @@ export function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/job-packaging-sales" element={<JobPackagingSales />} />
-          <Route path="/job-aerospace-manager" element={<JobAerospaceManager />} />
-          <Route path="/job-director-data-strategy" element={<JobDirectorDataStrategy />} />
+          <Route path="/job-labor-employment-attorney" element={<JobLaborEmploymentAttorney />} />
           <Route path="/thankyou" element={<ThankYou />} />
         </Route>
       </Routes>
