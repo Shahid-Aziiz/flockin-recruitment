@@ -13,6 +13,7 @@ export const URLS = {
   manufacturing: "/#specialisms",
   jobs: "/#jobs",
   employers: "/#employers",
+  hire: "/hire-talent",
   values: "/#values",
   contact: "/contact",
   candidates: "/cv-upload",
@@ -23,25 +24,19 @@ export const URLS = {
   facebook: "https://www.facebook.com/flockinrecruitment",
 };
 
+// Main navigation. `current` lists the route paths (or "/#hash" on the home page) that mark the item as the current page.
 export const navItems = [
-  { id: "services", label: "Services", href: "/services" },
+  { id: "services", label: "Services", href: "/services", paths: ["/services"] },
+  { id: "specialisms", label: "Specialisms", href: URLS.specialisms },
+  { id: "employers", label: "For Employers", href: URLS.employers, paths: ["/hire-talent"] },
+  { id: "candidates", label: "For Candidates", href: "/#candidates", paths: ["/cv-upload"] },
   {
-    id: "specialisms",
-    label: "Specialisms",
-    href: URLS.specialisms,
-    children: [
-      { label: "Technology", href: URLS.technology },
-      { label: "Finance", href: URLS.finance },
-      { label: "Legal", href: URLS.legal },
-      { label: "Engineering", href: URLS.engineering },
-      { label: "Healthcare", href: URLS.healthcare },
-      { label: "Manufacturing", href: URLS.manufacturing },
-    ],
+    id: "jobs",
+    label: "Job Search",
+    href: URLS.jobs,
+    paths: ["/job-packaging-sales", "/job-labor-employment-attorney"],
   },
-  { id: "jobs", label: "Job Search", href: URLS.jobs },
-  { id: "employers", label: "For Employers", href: URLS.employers },
-  { id: "values", label: "Values", href: URLS.values },
-  { id: "contact", label: "Contact", href: URLS.contact },
+  { id: "contact", label: "Contact", href: URLS.contact, paths: ["/contact"] },
 ];
 
 export const GAS_ENDPOINT =

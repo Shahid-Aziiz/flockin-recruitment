@@ -1,19 +1,13 @@
-import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { UploadSimple } from "@phosphor-icons/react";
+import { UploadBox } from "../components/UploadBox";
+import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { GAS_ENDPOINT } from "../constants";
 
 export function CvUpload() {
   const [submitting, setSubmitting] = useState(false);
-  const [fileName, setFileName] = useState("");
   const [error, setError] = useState("");
   const formRef = useRef(null);
   const navigate = useNavigate();
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setFileName(file ? file.name : "");
-  };
 
   const toBase64 = (file) =>
     new Promise((resolve, reject) => {
@@ -68,165 +62,145 @@ export function CvUpload() {
 
   return (
     <>
-      <section className="page-hero" aria-labelledby="cv-heading">
-        <div className="section-shell">
-          <p className="eyebrow eyebrow--rule">For candidates</p>
-          <h1 id="cv-heading">Submit your resume.</h1>
-          <p className="page-hero__sub">We read every resume we receive and only get in touch when there&apos;s a genuine match. No spam, no generic job alerts.</p>
+      <section className="sv sv-hero ct-hero" aria-labelledby="cv-h1">
+        <div className="sv-hero__in">
+          <h1 id="cv-h1">Send us <em>your CV</em>.</h1>
+          <p className="sv-lead">We read every CV we receive and only get in touch when there is a real match. No spam and no generic job alerts.</p>
         </div>
       </section>
-
-      <section className="contact-section">
-        <div className="section-shell contact-grid">
-          <div className="contact-form-col">
-            <h2>Your details</h2>
-
-            {error && <p className="form-error" role="alert">{error}</p>}
-
-            <form ref={formRef} onSubmit={handleSubmit} className="page-form">
-              <fieldset className="form-fieldset">
-                <legend>Personal information</legend>
-                <div className="form-row">
-                  <div className="form-field">
-                    <label htmlFor="firstName">First name <span aria-hidden="true">*</span></label>
-                    <input id="firstName" name="firstName" type="text" placeholder="John" required />
-                  </div>
-                  <div className="form-field">
-                    <label htmlFor="lastName">Last name <span aria-hidden="true">*</span></label>
-                    <input id="lastName" name="lastName" type="text" placeholder="Smith" required />
-                  </div>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="email">Email address <span aria-hidden="true">*</span></label>
+      <section className="sv ct-grid" id="cv">
+        <div className="ct-form">
+          <h2>Your details</h2>
+          <form className="ct-f cv-f" ref={formRef} onSubmit={handleSubmit}>
+            <fieldset>
+              <legend>About you</legend>
+              <div className="ct-row">
+                <label htmlFor="firstName"><span>First name *</span>
+                  <input id="firstName" name="firstName" type="text" placeholder="John" required />
+                </label>
+                <label htmlFor="lastName"><span>Last name *</span>
+                  <input id="lastName" name="lastName" type="text" placeholder="Smith" required />
+                </label>
+              </div>
+              <div className="ct-row">
+                <label htmlFor="email"><span>Email address *</span>
                   <input id="email" name="email" type="email" placeholder="john@email.com" required />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="phone">Phone number <span aria-hidden="true">*</span></label>
+                </label>
+                <label htmlFor="phone"><span>Phone number *</span>
                   <input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" required />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="address">Location</label>
-                  <textarea id="address" name="address" rows={2} placeholder="City, Country" />
-                </div>
-              </fieldset>
-
-              <fieldset className="form-fieldset">
-                <legend>Professional information</legend>
-                <div className="form-field">
-                  <label htmlFor="currentPosition">Current position</label>
-                  <input id="currentPosition" name="currentPosition" type="text" placeholder="e.g. Senior Software Engineer" />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="experience">Years of experience</label>
+                </label>
+              </div>
+              <label htmlFor="address"><span>Location</span>
+                <input id="address" name="address" type="text" placeholder="City, Country" />
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>Your work</legend>
+              <div className="ct-row">
+                <label htmlFor="currentPosition"><span>Current position</span>
+                  <input id="currentPosition" name="currentPosition" type="text" placeholder="Senior Software Engineer" />
+                </label>
+                <label htmlFor="experience"><span>Years of experience</span>
                   <select id="experience" name="experience">
-                    <option value="">Select experience level</option>
-                    <option value="0-1 years">0 to 1 years</option>
-                    <option value="1-3 years">1 to 3 years</option>
-                    <option value="3-5 years">3 to 5 years</option>
-                    <option value="5-10 years">5 to 10 years</option>
-                    <option value="10+ years">10 or more years</option>
+                    <option value="">Select</option>
+                    <option>0 to 1 years</option>
+                    <option>1 to 3 years</option>
+                    <option>3 to 5 years</option>
+                    <option>5 to 10 years</option>
+                    <option>10 or more years</option>
                   </select>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="skills">Key skills</label>
-                  <textarea id="skills" name="skills" rows={3} placeholder="e.g. Project Management, JavaScript, Financial Modelling" />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="desiredPosition">Desired position</label>
-                  <input id="desiredPosition" name="desiredPosition" type="text" placeholder="e.g. Head of Engineering, Finance Manager" />
-                </div>
-              </fieldset>
-
-              <fieldset className="form-fieldset">
-                <legend>Resume upload</legend>
-                <div className="form-field">
-                  <label htmlFor="cvFile">Resume / CV <span aria-hidden="true">*</span></label>
-                  <div className={`file-upload-wrapper ${fileName ? "has-file" : ""}`}>
-                    <input id="cvFile" name="cvFile" type="file" accept=".pdf,.doc,.docx" required onChange={handleFileChange} />
-                    <div className="file-upload-ui">
-                      <UploadSimple size={24} aria-hidden="true" />
-                      <span>{fileName || "Click to upload PDF or Word document (max 5 MB)"}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="coverLetter">Cover letter</label>
-                  <textarea id="coverLetter" name="coverLetter" rows={5} placeholder="Tell us about yourself and what you're looking for…" />
-                </div>
-              </fieldset>
-
-              <fieldset className="form-fieldset">
-                <legend>Preferences</legend>
-                <div className="form-row">
-                  <div className="form-field">
-                    <label htmlFor="location">Preferred location</label>
-                    <select id="location" name="location">
-                      <option value="">Any location</option>
-                      <option value="United States">United States</option>
-                      <option value="Europe">Europe</option>
-                      <option value="Remote">Remote</option>
-                      <option value="Open to anywhere">Open to anywhere</option>
-                    </select>
-                  </div>
-                  <div className="form-field">
-                    <label htmlFor="availability">Availability</label>
-                    <select id="availability" name="availability">
-                      <option value="">Select availability</option>
-                      <option value="Immediate">Immediate</option>
-                      <option value="2 weeks notice">2 weeks notice</option>
-                      <option value="1 month notice">1 month notice</option>
-                      <option value="3 months notice">3 months notice</option>
-                      <option value="Flexible">Flexible</option>
-                    </select>
-                  </div>
-                </div>
-              </fieldset>
-
-              <div className="form-field form-field--checkbox">
-                <label className="checkbox-label">
-                  <input type="checkbox" name="privacyConsent" required />
-                  <span>I consent to FlockIn Recruitment processing my personal data in accordance with their <a href="/privacy-policy">privacy policy</a>. <span aria-hidden="true">*</span></span>
                 </label>
               </div>
-
-              <div className="form-field form-field--checkbox">
-                <label className="checkbox-label">
-                  <input type="checkbox" name="marketingConsent" />
-                  <span>I&apos;d like to receive updates about job opportunities and recruitment insights.</span>
+              <label htmlFor="skills"><span>Key skills</span>
+                <textarea id="skills" name="skills" rows="3" placeholder="For example: project management, JavaScript, financial modelling" />
+              </label>
+              <label htmlFor="desiredPosition"><span>Role you want next</span>
+                <input id="desiredPosition" name="desiredPosition" type="text" placeholder="Head of Engineering, Finance Manager" />
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>Your CV</legend><UploadBox id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required idle="Click to upload your CV" hint="PDF or Word, up to 5 MB">
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" />
+                </svg>
+              </UploadBox>
+              <label htmlFor="coverLetter"><span>Cover letter (optional)</span>
+                <textarea id="coverLetter" name="coverLetter" rows="4" placeholder="Tell us about yourself and what you are looking for." />
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>What you are looking for</legend>
+              <div className="ct-row">
+                <label htmlFor="location"><span>Preferred location</span>
+                  <select id="location" name="location">
+                    <option value="">Any location</option>
+                    <option>United States</option>
+                    <option>Europe</option>
+                    <option>Remote</option>
+                    <option>Open to anywhere</option>
+                  </select>
+                </label>
+                <label htmlFor="availability"><span>Availability</span>
+                  <select id="availability" name="availability">
+                    <option value="">Select</option>
+                    <option>Immediately</option>
+                    <option>2 weeks notice</option>
+                    <option>1 month notice</option>
+                    <option>3 months notice</option>
+                    <option>Flexible</option>
+                  </select>
                 </label>
               </div>
-
-              <button type="submit" className="form-submit" disabled={submitting}>
-                {submitting ? "Submitting…" : "Submit Application"}
+            </fieldset>
+            <label className="cv-check">
+              <input type="checkbox" name="privacyConsent" required /><span>I agree to FlockIn Recruitment using my details as set out in the <Link to="/privacy-policy">Privacy Policy</Link>. *</span>
+            </label>
+            <label className="cv-check">
+              <input type="checkbox" name="marketingConsent" /><span>Send me updates about job openings and hiring news.</span>
+            </label>
+            {error && <p className="cv-error" role="alert">{error}</p>}
+        <div className="fb-row">
+              <button className="fb fb--n" type="submit" disabled={submitting}><span>{submitting ? "Sending..." : "Send my CV"}</span><i>
+                  <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+                    <path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </i>
               </button>
-            </form>
-          </div>
-
-          <aside className="contact-info-col">
-            <div className="contact-info-card">
-              <h3>What happens next?</h3>
-              <ul className="info-list">
-                <li>We review every CV we receive personally.</li>
-                <li>If there&apos;s a current match, we&apos;ll contact you within 2 working days.</li>
-                <li>If not, we keep your profile on file for future roles.</li>
-                <li>We never share your details without your consent.</li>
-              </ul>
             </div>
-            <div className="contact-info-card">
-              <h3>Resume tips</h3>
-              <ul className="info-list">
-                <li>Keep it to 2 pages maximum.</li>
-                <li>Lead with your most recent experience.</li>
-                <li>Include specific achievements, not just responsibilities.</li>
-                <li>PDF format is preferred.</li>
-              </ul>
-            </div>
-            <div className="contact-info-card">
-              <h3>Prefer to call?</h3>
-              <p>Call us on <a href="tel:+13239849907">+1 323 984 9907</a> or email <a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a> and we&apos;ll get back to you.</p>
-            </div>
-          </aside>
+          </form>
         </div>
+        <aside className="ct-side">
+          <div className="ct-card ct-card--n">
+            <h3>What happens next</h3>
+            <ul className="cv-list cv-list--d">
+              <li><span className="cv-dot" /><span>We read every CV we receive ourselves.</span></li>
+              <li><span className="cv-dot" /><span>If there is a match right now, we contact you within 2 working days.</span></li>
+              <li><span className="cv-dot" /><span>If not, we keep your profile for future roles.</span></li>
+              <li><span className="cv-dot" /><span>We never share your details without your consent.</span></li>
+            </ul>
+          </div>
+          <div className="ct-card">
+            <h3>CV tips</h3>
+            <ul className="cv-list">
+              <li><span className="cv-dot" /><span>Keep it to 2 pages at most.</span></li>
+              <li><span className="cv-dot" /><span>Start with your most recent job.</span></li>
+              <li><span className="cv-dot" /><span>Include results, not only duties.</span></li>
+              <li><span className="cv-dot" /><span>PDF is the best format.</span></li>
+            </ul>
+          </div>
+          <div className="ct-card">
+            <h3>Prefer to call?</h3>
+            <p>Call or email us and we will help you send your details.</p>
+            <ul className="ht-lines">
+              <li>
+                <a href="tel:+13239849907">+1 323 984 9907</a><span>Monday to Friday, 9:00 AM to 6:00 PM</span>
+              </li>
+              <li>
+                <a href="mailto:contact@flockinrecruitment.com">contact@flockinrecruitment.com</a><span>We reply within one working day</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
       </section>
     </>
   );
